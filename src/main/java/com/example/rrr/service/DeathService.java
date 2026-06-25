@@ -2,19 +2,30 @@ package com.example.rrr.service;
 
 import com.example.rrr.dto.PlayerMeta;
 import com.example.rrr.dto.PlayerRun;
+import com.example.rrr.repository.PlayerRunRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class DeathService {
 
-    public void checkDeath(PlayerMeta meta, PlayerRun run) {
+    private final PlayerRunRepository runRepository;
+
+    /**
+     * Returns the run that should be considered active going forward:
+     * the same run if the player survived, or a brand-new hub run if they died.
+     */
+    public PlayerRun checkDeath(PlayerMeta meta, PlayerRun run) {
 
         if (run.getHumiliation() >= 2000) {
-            triggerDeath(meta, run);
+            return triggerDeath(meta, run);
         }
+
+        return run;
     }
 
-    private void triggerDeath(PlayerMeta meta, PlayerRun run) {
+    private PlayerRun triggerDeath(PlayerMeta meta, PlayerRun run) {
 
         meta.incrementDeaths();
 
@@ -25,5 +36,7 @@ public class DeathService {
         meta.reduceBowelControl(5);
 
         run.resetForRespawn();
+
+        return runRepository.save(new PlayerRun(meta));
     }
 }

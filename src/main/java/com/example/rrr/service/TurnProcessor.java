@@ -14,14 +14,18 @@ public class TurnProcessor {
     private final AccidentService accidentService;
     private final DeathService deathService;
 
-    public void processTurn(PlayerMeta meta, PlayerRun run) {
+    /**
+     * Returns the run that is active after this turn: the same run if the
+     * player survived, or a new hub run if this turn killed them.
+     */
+    public PlayerRun processTurn(PlayerMeta meta, PlayerRun run) {
 
         drainBladder(run);
         drainBowel(run);
 
         accidentService.checkAccidents(meta, run);
 
-        deathService.checkDeath(meta, run);
+        return deathService.checkDeath(meta, run);
     }
 
     private void drainBladder(PlayerRun run) {

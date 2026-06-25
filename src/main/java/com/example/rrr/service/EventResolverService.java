@@ -14,7 +14,6 @@ public class EventResolverService {
 
     private final HumiliationCalculator humiliationCalculator;
     private final AccidentService accidentService;
-    private final DeathService deathService;
 
     public EventOutcome resolve(
             GameEvent event,
@@ -53,8 +52,6 @@ public class EventResolverService {
             accidentService.checkAccidents(meta, run);
             accident = true;
         }
-
-        deathService.checkDeath(meta, run);
 
         return new EventOutcome(
                 success,

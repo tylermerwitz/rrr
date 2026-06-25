@@ -1,5 +1,6 @@
 package com.example.rrr.dto;
 
+import com.example.rrr.model.GameLocation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -33,6 +34,9 @@ public class PlayerRun {
     private int currentFloor;
     private boolean active;
 
+    @Enumerated(EnumType.STRING)
+    private GameLocation location;
+
     private LocalDateTime startedAt;
 
     private long worldSeed;
@@ -60,6 +64,7 @@ public class PlayerRun {
         this.bowelPercent = player.getBowelBase();
         this.currentFloor = 1;
         this.active = true;
+        this.location = GameLocation.HUB;
         this.startedAt = LocalDateTime.now();
         this.worldSeed = seed;
         this.random = new Random(seed);
@@ -110,6 +115,19 @@ public class PlayerRun {
     }
 
     /* ========================
+       HUB / FLOOR TRANSITIONS
+       ======================== */
+
+    public void enterFloor() {
+        this.location = GameLocation.FLOOR;
+        this.currentFloor = 1;
+    }
+
+    public void returnToHub() {
+        this.location = GameLocation.HUB;
+    }
+
+    /* ========================
        RESPAWN
        ======================== */
 
@@ -118,6 +136,7 @@ public class PlayerRun {
         this.bladderPercent = player.getBladderBase();
         this.bowelPercent = player.getBowelBase();
         this.currentFloor = 1;
+        this.location = GameLocation.HUB;
         this.active = false;
     }
 
@@ -210,6 +229,16 @@ public class PlayerRun {
     public void setActive(boolean active)
     {
         this.active = active;
+    }
+
+    public GameLocation getLocation()
+    {
+        return location;
+    }
+
+    public void setLocation(GameLocation location)
+    {
+        this.location = location;
     }
 
     public LocalDateTime getStartedAt()

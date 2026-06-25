@@ -25,8 +25,8 @@ public class GameEngineService {
 
         EventOutcome outcome = resolver.resolve(event, meta, run);
 
-        turnProcessor.processTurn(meta, run);
+        PlayerRun activeRun = turnProcessor.processTurn(meta, run);
 
-        return new TurnResult(run, meta, outcome);
+        return new TurnResult(activeRun, meta, outcome);
     }
 }
