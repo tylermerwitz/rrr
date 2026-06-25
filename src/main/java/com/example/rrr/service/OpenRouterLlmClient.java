@@ -6,8 +6,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
 
 @Component
 @RequiredArgsConstructor
@@ -20,18 +22,8 @@ public class OpenRouterLlmClient implements LlmClient {
     @Value("${llm.model}")
     private String model;
 
-    private WebClient client = WebClient.builder()
-            .baseUrl("https://openrouter.ai/api/v1")
-            .defaultHeader(HttpHeaders.AUTHORIZATION, "Bearer " + apiKey)
-            .defaultHeader(HttpHeaders.CONTENT_TYPE, "application/json")
-            .defaultHeader("HTTP-Referer", "http://localhost:8080")
-            .defaultHeader("X-Title", "RegressionRealm")
-            .build();
-
     @Override
     public String complete(String prompt) {
-
-        System.out.println("API KEY: " + apiKey);
 
         String body = """
             {
@@ -44,12 +36,24 @@ public class OpenRouterLlmClient implements LlmClient {
             }
         """.formatted(model, toJson(prompt));
 
-        String response = client.post()
-                .uri("/chat/completions")
+        String response = WebClient.builder()
+                .build()
+                .post()
+                .uri("https://openrouter.ai/api/v1/chat/completions")
+                .header("Authorization", "Bearer " + apiKey)
+                .header("Content-Type", "application/json")
+                .header("HTTP-Referer", "http://localhost")
+                .header("X-Title", "TestApp")
                 .bodyValue(body)
                 .retrieve()
+                .onStatus(HttpStatusCode::isError, resp ->
+                        resp.bodyToMono(String.class)
+                                .flatMap(b -> Mono.error(new RuntimeException("HTTP " + resp.statusCode() + ": " + b))))
                 .bodyToMono(String.class)
                 .block();
+
+        System.out.println("REQUEST BODY:");
+        System.out.println(body);
 
         return extractContent(response);
     }
