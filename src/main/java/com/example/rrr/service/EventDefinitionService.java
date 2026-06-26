@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * The catalog of hand-authored events, loaded once from {@code events.json} at startup. Events are
+ * The catalog of hand-authored events, loaded once from {@code events_floor_1.json} at startup. Events are
  * immutable definitions used directly (no per-floor scaling or instantiation), so the loaded
  * instances are shared across requests.
  */
@@ -30,7 +30,7 @@ public class EventDefinitionService {
         EventCatalog catalog = load(objectMapper);
 
         if (catalog.getEvents() == null || catalog.getEvents().isEmpty()) {
-            throw new IllegalStateException("events.json defines no events");
+            throw new IllegalStateException("events_floor_1.json defines no events");
         }
         for (GameEvent event : catalog.getEvents()) {
             events.put(event.getId(), event);
@@ -43,15 +43,15 @@ public class EventDefinitionService {
                 .toList();
 
         if (floorPool.isEmpty()) {
-            throw new IllegalStateException("events.json defines no NORMAL or ELITE floor events");
+            throw new IllegalStateException("events_floor_1.json defines no NORMAL or ELITE floor events");
         }
     }
 
     private EventCatalog load(ObjectMapper objectMapper) {
-        try (InputStream in = new ClassPathResource("events.json").getInputStream()) {
+        try (InputStream in = new ClassPathResource("events_floor_1.json").getInputStream()) {
             return objectMapper.readValue(in, EventCatalog.class);
         } catch (Exception e) {
-            throw new IllegalStateException("Failed to load events.json", e);
+            throw new IllegalStateException("Failed to load events_floor_1.json", e);
         }
     }
 

@@ -8,7 +8,7 @@ import lombok.Setter;
 
 import java.util.List;
 
-/** Root shape of {@code events.json}: the full list of authored events. */
+/** Root shape of {@code events_floor_1.json}: the full list of authored events. */
 @Getter
 @Setter
 @NoArgsConstructor

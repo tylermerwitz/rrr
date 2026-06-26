@@ -8,7 +8,7 @@ import lombok.Setter;
 import java.util.List;
 
 /**
- * A hand-authored encounter, loaded from {@code events.json}. An event is a {@link #scene} (the
+ * A hand-authored encounter, loaded from {@code events_floor_1.json}. An event is a {@link #scene} (the
  * narration shown when it's presented) plus its {@link #choices} — each a risk tier with its own
  * authored success/failure branches AND its own check {@link EventChoice#getCategory() category},
  * so different choices test different aptitudes. There is no per-floor scaling or runtime mutation:

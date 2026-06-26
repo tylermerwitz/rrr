@@ -9,7 +9,7 @@ import lombok.Setter;
 /**
  * The fully-authored result of one branch of a choice (its success OR its failure): the prose the
  * player reads on the resolution screen, plus the exact mechanical consequences applied to the run.
- * Loaded from {@code events.json}; this is the unit of "granular control" over what each outcome does.
+ * Loaded from {@code events_floor_1.json}; this is the unit of "granular control" over what each outcome does.
  */
 @Getter
 @Setter
@@ -64,7 +64,7 @@ public class EventConsequence {
 
     /**
      * Authored, NOT yet implemented. A named status effect this outcome would apply (e.g.
-     * "Claiming Potty Trained", "Enemy: Strict Nanny"). Captured from {@code events.json} so the
+     * "Claiming Potty Trained", "Enemy: Strict Nanny"). Captured from {@code events_floor_1.json} so the
      * authored data is preserved for a future status-effect system, but nothing reads it yet — it
      * has no mechanical effect today.
      */

@@ -9,7 +9,7 @@ import lombok.Setter;
  * One of an event's authored options. Carries the button {@link #label}, the odds the attempt
  * works ({@link #successChance}), and a fully-authored {@link #success} and {@link #failure}
  * branch so both outcomes — and their consequences — are hand-tuned per choice. Loaded from
- * {@code events.json}.
+ * {@code events_floor_1.json}.
  */
 @Getter
 @Setter

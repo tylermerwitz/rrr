@@ -1,0 +1,640 @@
+{
+  "events": [
+    {
+      "id": "nursery_ward_intake_exam",
+      "roomType": "NORMAL",
+      "requirements": {
+        "minRegression": 0,
+        "maxRegression": 300
+      },
+      "variants": [
+        {
+          "gender": "male",
+          "scene": "You shuffle into the sterile examination room, the paper gown barely covering your already-diapered bottom. Nurse Diana waits beside a gleaming examination table, snapping on latex gloves with a sharp crack. 'Up on the table, sweetie. Legs spread wide. We need to establish your baseline continence levels before we can design your treatment plan.' Her smile is professionally warm, but her eyes gleam with something else as she pats the cold metal surface. A tray of instruments sits nearby - thermometers, prostate massagers, lubricant tubes.",
+
+          "choices": [
+            {
+              "risk": "SAFE",
+              "category": "SOCIAL",
+              "label": "Cooperate fully with the examination",
+              "successChance": 0.80,
+
+              "success": {
+                "narration": "You climb onto the table obediently, the cold metal making you gasp as your padded bottom settles against it. 'Good baby,' Nurse Diana coos, securing your ankles in stirrups with practiced efficiency. She peels back the tapes of your diaper, exposing your cock and balls completely to the cool air. Her gloved fingers cup your testicles professionally, checking their weight and sensitivity. 'Very responsive. This will make treatment easier.' She produces a rectal thermometer, slicking it with lube before sliding it deep into your ass. You whimper as she holds it there, her other hand patting your inner thigh like you're a child getting a routine checkup. 'Five minutes, sweetie. Stay nice and still for Nurse.' The thermometer fills you with constant pressure while she makes notes on her clipboard, occasionally glancing down at your exposed body. Being examined so clinically, so thoroughly, like a helpless infant makes you feel small and vulnerable. 'You're going to be very responsive to treatment,' she says, and somehow that feels less like a compliment and more like an assessment of how easily you'll be conditioned.",
+                "humiliation": 120,
+                "regression": 2,
+                "coins": 15,
+                "bladderDrain": 10,
+                "statusEffect": "Compliant Patient: +10% success chance on SOCIAL checks for next 3 encounters"
+              },
+
+              "failure": {
+                "narration": "You try to climb onto the table, but your hands tremble and slip on the metal surface. Your nervousness is obvious, and Nurse Diana's expression shifts from warm to stern. 'I see we have a reluctant patient. That's quite common on intake.' She presses a button, and suddenly two orderlies appear. They lift you bodily onto the table despite your protests, securing thick leather restraints around your wrists and ankles. 'Since you can't cooperate, we'll need to ensure you stay still.' The examination proceeds anyway, but now you're helplessly bound as she peels your diaper away. Her touch is rougher now, less patient. She grips your cock firmly, checking it with clinical efficiency while you squirm uselessly in your bonds. The pressure on your bladder from the position and your anxiety becomes too much - warmth suddenly floods between your legs as you wet yourself involuntarily right there on the examination table. 'Oh my. Can't even hold it during a simple exam,' Nurse Diana observes, making a note. When she inserts the thermometer it's with a sharp thrust that makes you yelp. 'Bad babies get clinical treatment, not gentle care.' She leaves you restrained on the cold table, lying in your own puddle, thermometer lodged deep in your bottom while she completes her paperwork. The humiliation of being splayed open, bound, and having pissed yourself like a frightened child makes your face burn crimson.",
+                "humiliation": 280,
+                "regression": 1,
+                "wet": true,
+                "bladderDrain": 5,
+                "bladderFill": 100,
+                "statusEffect": "Restrained: -15% success chance on ATHLETICS and STEALTH checks for next 2 encounters"
+              }
+            },
+
+            {
+              "risk": "MODERATE",
+              "category": "WILLPOWER",
+              "label": "Try to negotiate for a less invasive exam",
+              "successChance": 0.55,
+
+              "success": {
+                "narration": "'Nurse Diana, I... I understand you need information, but maybe we could start with something less intense?' Your voice wavers but holds firm. She pauses, tilting her head as she considers you. 'Well... you do seem more self-aware than most intakes. Perhaps we can try the external assessment first.' She has you lie back, but leaves your diaper on, instead running her hands over the padding, pressing and probing through the material. Her fingers trace the leg bands, testing how snugly they fit, then press firmly against your crotch, feeling the shape of your cock through the thick padding. 'Tell me when you feel pressure on your bladder.' She increases the pressure systematically, watching your face for reactions. The examination is still intimate, still embarrassing as she maps your responses through the protective layer of padding, but you've maintained some dignity. 'Interesting. You have good awareness of your body. That will make conditioning more... challenging. More rewarding.' She makes extensive notes. 'We'll start you on a modified treatment plan - one that works with your self-awareness rather than against it.' Successfully negotiating has given you a small measure of control in this place where control is currency.",
+                "humiliation": 180,
+                "arousal": 3,
+                "coins": 25,
+                "bladderDrain": 15,
+                "statusEffect": "Negotiator: +15% success chance on SOCIAL checks with medical staff for next 3 encounters"
+              },
+
+              "failure": {
+                "narration": "'Nurse Diana, I don't think—' Your protest dies as her expression turns ice-cold. 'You don't THINK? Patients don't think here, sweetie. Patients OBEY.' She snaps her fingers and the orderlies appear instantly. 'Examination table. Full restraint protocol.' You're wrestled onto the table despite your struggles, thick leather cuffs locked around wrists, ankles, even your forehead to keep your head immobile. 'Since you wanted to negotiate, let's discuss what happens to patients who think they're in charge.' She rips your diaper off roughly, then produces a large inflatable plug. 'This is a retention trainer. It will stay inside you for the next hour, inflated, teaching your body what it means to be FULL and under MY control.' She pushes the plug into your ass without ceremony, then pumps it up until you're gasping, stretched obscenely around the intrusion. The pressure on your insides becomes overwhelming. Your bladder, already stressed from the situation, gives out first - you piss helplessly, unable to stop the flow. Then your bowels, protesting the massive intrusion, cramp violently. 'Hold it,' she commands, but you can't. Warm mush pushes out around the plug as you mess yourself involuntarily, your body betraying you completely. 'There. Now you understand your place.' She leaves you bound, plugged, lying in your own filth, learning that negotiation was never really an option. Your attempt to maintain control has resulted in losing all of it in the most humiliating way possible.",
+                "humiliation": 420,
+                "regression": 1,
+                "wet": true,
+                "mess": true,
+                "bladderDrain": 30,
+                "bowelDrain": 40,
+                "bladderFill": 100,
+                "bowelFill": 100,
+                "statusEffect": "Plugged and Broken: Constant fullness and loss of control. -20% on all checks for next 3 encounters. Automatic accidents very likely."
+              }
+            },
+
+            {
+              "risk": "RISKY",
+              "category": "AROUSAL",
+              "label": "Ask for a 'thorough' examination with prostate stimulation",
+              "successChance": 0.35,
+
+              "success": {
+                "narration": "'Nurse Diana... I've heard the intake exam can include prostate assessment. I'd like... I'd like the complete examination please.' Your voice drops, heat flooding your cheeks as you make the request explicit. Her eyes light up with genuine interest. 'Oh my. A patient who knows what he wants and asks for it directly. How refreshing.' She doesn't just examine you - she indulges you. You're positioned on the table, legs spread wide, and she takes her time. Her gloved hand wraps around your cock, stroking it to full hardness with expert precision. 'Let's establish your baseline arousal first.' Then she produces a curved prostate massager, slicking it thoroughly before sliding it deep into your ass. You gasp as it presses directly against that sensitive spot inside. 'Perfect positioning,' she purrs. Her hand returns to your cock, stroking in rhythm with the massager's movements inside you. The dual stimulation is overwhelming - her skilled fingers working your shaft while the toy massages your prostate relentlessly. 'Such responsive erectile tissue. Excellent pre-ejaculate production.' You're writhing, desperate, whimpering as she edges you again and again. When she finally lets you cum, it's explosive - your cock spurting thick ropes across your belly and chest while she milks every drop from your prostate. 'Perfect sample collection,' she says clinically, even as your whole body shudders with the intensity. She collects your cum in a specimen cup, then diapers you without cleaning you first - the evidence of your pleasure smearing against the padding. 'Patients who are honest about their desires get rewarded.' The bulge in your diaper from your still-sensitive erection is obvious as she pats it.",
+                "humiliation": 200,
+                "arousal": 5,
+                "coins": 40,
+                "bladderDrain": 20,
+                "bowelDrain": 15,
+                "itemGained": "nurse_diana_favor",
+                "statusEffect": "Thoroughly Pleasured: Nurse Diana appreciates your honesty. +25% success on AROUSAL checks. Unlocks special encounters with her."
+              },
+
+              "failure": {
+                "narration": "'Please Nurse, I want the full prostate exam, I need—' You try to sound confident and direct but it comes out desperate and needy in the wrong way. Nurse Diana's expression shifts to disappointment. 'Oh sweetie. You're asking for sexual gratification disguised as medical examination. That's manipulation, and we don't reward that here.' Her voice drops dangerously low. 'Let me show you the difference between therapeutic prostate stimulation and punishment.' She calls for the orderlies and has you strapped down completely. She produces a punishment enema bag filled with cold soapy water. 'Since you wanted something in your ass, let's fill you properly.' She forces the nozzle deep, then releases the flow. Your belly cramps immediately as two full quarts flood your bowels. 'Hold it. You're going to hold this for twenty minutes.' She plugs you to keep the enema trapped inside, your belly distending painfully. Your bowels cramp and spasm, desperate for release. The pressure becomes unbearable, and despite your best efforts, you lose control - warm mush explodes into the diaper she's placed under you as your body evacuates violently. But she's not done. 'And since you wanted prostate stimulation...' She inserts an electro-stim probe that sends sharp, painful pulses through your most sensitive internal tissue. It's not pleasure - it's punishment, making you gasp and writhe. Your cock stays frustratingly half-hard through the ordeal, aroused but denied any satisfaction. 'That's what happens when you try to manipulate medical staff for sexual gratification.' You're left there, messy, cramping, and denied, learning the hard difference between honest desire and manipulation.",
+                "humiliation": 520,
+                "regression": 1,
+                "mess": true,
+                "bladderDrain": 40,
+                "bowelDrain": 60,
+                "bowelFill": 100,
+                "statusEffect": "Punished Manipulator: Nurse Diana doesn't trust you. -25% success on SOCIAL and AROUSAL checks with staff for next 5 encounters."
+              }
+            }
+          ]
+        },
+        {
+          "gender": "female",
+          "scene": "You shuffle into the sterile examination room, the paper gown barely covering your already-diapered bottom. Nurse Diana waits beside a gleaming examination table, snapping on latex gloves with a sharp crack. 'Up on the table, sweetie. Legs in the stirrups. We need to establish your baseline continence levels before we can design your treatment plan.' Her smile is professionally warm, but her eyes gleam with something else as she pats the cold metal surface. A tray of instruments sits nearby - thermometers, speculums, lubricant tubes, and what looks like a small vibrator for 'sensitivity testing.'",
+
+          "choices": [
+            {
+              "risk": "SAFE",
+              "category": "SOCIAL",
+              "label": "Cooperate fully with the examination",
+              "successChance": 0.80,
+
+              "success": {
+                "narration": "You climb onto the table obediently, the cold metal making you gasp as your padded bottom settles against it. 'Good girl,' Nurse Diana coos, securing your ankles in the stirrups with practiced efficiency. She peels back the tapes of your diaper, exposing your pussy completely to the cool air. Her gloved fingers part your labia gently, examining you with clinical thoroughness. 'Good sensitivity. Healthy tissue.' She produces a rectal thermometer, slicking it with lube before sliding it deep into your ass. You whimper as she holds it there, her other hand patting your inner thigh reassuringly like you're a child getting a routine checkup. 'Five minutes, sweetie. Stay nice and still for Nurse.' The thermometer fills you with constant pressure while she makes notes on her clipboard, occasionally glancing down at your exposed body. Being examined so clinically, so thoroughly, with your most intimate places on display like a helpless infant makes you feel small and vulnerable. 'You're going to be very responsive to treatment,' she says, and somehow that feels less like a compliment and more like an assessment of how easily you'll be conditioned.",
+                "humiliation": 120,
+                "regression": 2,
+                "coins": 15,
+                "bladderDrain": 10,
+                "statusEffect": "Compliant Patient: +10% success chance on SOCIAL checks for next 3 encounters"
+              },
+
+              "failure": {
+                "narration": "You try to climb onto the table, but your hands tremble and slip on the metal surface. Your nervousness is obvious, and Nurse Diana's expression shifts from warm to stern. 'I see we have a reluctant patient. That's quite common on intake.' She presses a button, and suddenly two orderlies appear. They lift you bodily onto the table despite your protests, securing thick leather restraints around your wrists and ankles. 'Since you can't cooperate, we'll need to ensure you stay still.' The examination proceeds anyway, but now you're helplessly bound as she peels your diaper away. Her touch is rougher now, less patient. She spreads your pussy lips wide, examining you clinically while you squirm uselessly in your bonds. The pressure from your position and your anxiety becomes too much - warmth suddenly trickles between your legs as you wet yourself involuntarily right there on the examination table, piss running down onto the padding beneath you. 'Oh my. Can't even hold it during a simple exam,' Nurse Diana observes, making a note. When she inserts the thermometer it's with a sharp thrust that makes you yelp. 'Bad babies get clinical treatment, not gentle care.' She leaves you restrained on the cold table, lying in your own puddle, thermometer lodged deep in your bottom while she completes her paperwork. The humiliation of being splayed open, bound, and having pissed yourself like a frightened child makes your face burn crimson.",
+                "humiliation": 280,
+                "regression": 1,
+                "wet": true,
+                "bladderDrain": 5,
+                "bladderFill": 100,
+                "statusEffect": "Restrained: -15% success chance on ATHLETICS and STEALTH checks for next 2 encounters"
+              }
+            },
+
+            {
+              "risk": "MODERATE",
+              "category": "WILLPOWER",
+              "label": "Try to negotiate for a less invasive exam",
+              "successChance": 0.55,
+
+              "success": {
+                "narration": "'Nurse Diana, I... I understand you need information, but maybe we could start with something less intense?' Your voice wavers but holds firm. She pauses, tilting her head as she considers you. 'Well... you do seem more self-aware than most intakes. Perhaps we can try the external assessment first.' She has you lie back, but leaves your diaper on, instead running her hands over the padding, pressing and probing through the material. Her fingers trace the leg bands, testing how snugly they fit, then press firmly against your crotch, feeling the shape of your pussy through the thick padding. 'Tell me when you feel pressure on your bladder.' She increases the pressure systematically, watching your face for reactions. The examination is still intimate, still embarrassing as she maps your responses through the protective layer of padding, but you've maintained some dignity. 'Interesting. You have good awareness of your body. That will make conditioning more... challenging. More rewarding.' She makes extensive notes. 'We'll start you on a modified treatment plan - one that works with your self-awareness rather than against it.' Successfully negotiating has given you a small measure of control in this place where control is currency.",
+                "humiliation": 180,
+                "arousal": 3,
+                "coins": 25,
+                "bladderDrain": 15,
+                "statusEffect": "Negotiator: +15% success chance on SOCIAL checks with medical staff for next 3 encounters"
+              },
+
+              "failure": {
+                "narration": "'Nurse Diana, I don't think—' Your protest dies as her expression turns ice-cold. 'You don't THINK? Patients don't think here, sweetie. Patients OBEY.' She snaps her fingers and the orderlies appear instantly. 'Examination table. Full restraint protocol.' You're wrestled onto the table despite your struggles, thick leather cuffs locked around wrists, ankles, even your forehead to keep your head immobile. 'Since you wanted to negotiate, let's discuss what happens to patients who think they're in charge.' She rips your diaper off roughly, then produces a large inflatable plug. 'This is a retention trainer. It will stay inside you for the next hour, inflated, teaching your body what it means to be FULL and under MY control.' She pushes the plug into your ass without ceremony, then pumps it up until you're gasping, stretched obscenely around the intrusion. The pressure on your insides becomes overwhelming. Your bladder, already stressed from the situation, gives out first - you piss helplessly, unable to stop the stream. Then your bowels, protesting the massive intrusion, cramp violently. 'Hold it,' she commands, but you can't. Warm mush pushes out around the plug as you mess yourself involuntarily, your body betraying you completely. 'There. Now you understand your place.' She leaves you bound, plugged, lying in your own filth, learning that negotiation was never really an option. Your attempt to maintain control has resulted in losing all of it in the most humiliating way possible.",
+                "humiliation": 420,
+                "regression": 1,
+                "wet": true,
+                "mess": true,
+                "bladderDrain": 30,
+                "bowelDrain": 40,
+                "bladderFill": 100,
+                "bowelFill": 100,
+                "statusEffect": "Plugged and Broken: Constant fullness and loss of control. -20% on all checks for next 3 encounters. Automatic accidents very likely."
+              }
+            },
+
+            {
+              "risk": "RISKY",
+              "category": "AROUSAL",
+              "label": "Ask for a 'thorough' examination with internal stimulation",
+              "successChance": 0.35,
+
+              "success": {
+                "narration": "'Nurse Diana... I've heard the intake exam can include internal sensitivity assessment. I'd like... I'd like the complete examination please.' Your voice drops, heat flooding your cheeks as you make the request explicit. Her eyes light up with genuine interest. 'Oh my. A patient who knows what she wants and asks for it directly. How refreshing.' She doesn't just examine you - she indulges you. You're positioned on the table, legs spread wide in the stirrups, and she takes her time. Her gloved fingers slide along your pussy lips, testing your natural lubrication. 'Already responding. Excellent.' Then she slides two fingers deep inside you, curling them to find your g-spot with expert precision. You gasp as she presses that sensitive spot rhythmically. 'Perfect response,' she purrs. Her other hand moves to your clit, circling it with deliberate pressure while her fingers work inside you. The dual stimulation is overwhelming - her skilled touch bringing you rapidly toward climax. She produces a curved vibrator designed specifically for g-spot stimulation, sliding it in alongside her fingers. 'Let's measure your full orgasmic response.' You're writhing, desperate, whimpering as she works you expertly. When she finally lets you cum, it's intense - your pussy clenching rhythmically around her fingers and the toy, wetness flooding out as you cry out. 'Perfect. Strong pelvic contractions, excellent lubrication response.' She doesn't stop, continuing to stimulate you through the aftershocks until you're oversensitive and gasping. She collects samples of your arousal for testing, then diapers you without cleaning you first - your wetness smearing against the padding. 'Patients who are honest about their desires get rewarded.' Your pussy throbs sensitively against the thick padding.",
+                "humiliation": 200,
+                "arousal": 5,
+                "coins": 40,
+                "bladderDrain": 20,
+                "bowelDrain": 15,
+                "itemGained": "nurse_diana_favor",
+                "statusEffect": "Thoroughly Pleasured: Nurse Diana appreciates your honesty. +25% success on AROUSAL checks. Unlocks special encounters with her."
+              },
+
+              "failure": {
+                "narration": "'Please Nurse, I want the full internal exam, I need—' You try to sound confident and direct but it comes out desperate and needy in the wrong way. Nurse Diana's expression shifts to disappointment. 'Oh sweetie. You're asking for sexual gratification disguised as medical examination. That's manipulation, and we don't reward that here.' Her voice drops dangerously low. 'Let me show you the difference between therapeutic stimulation and punishment.' She calls for the orderlies and has you strapped down completely. She produces a punishment enema bag filled with cold soapy water. 'Since you wanted something inside you, let's fill you properly.' She forces the nozzle deep into your ass, then releases the flow. Your belly cramps immediately as two full quarts flood your bowels. 'Hold it. You're going to hold this for twenty minutes.' She plugs you to keep the enema trapped inside, your belly distending painfully. Your bowels cramp and spasm, desperate for release. The pressure becomes unbearable, and despite your best efforts, you lose control - warm mush explodes into the diaper she's placed under you as your body evacuates violently. But she's not done. 'And since you wanted stimulation...' She clamps a vibrator directly onto your clit at an overwhelming intensity. It's not pleasure - it's too much, too intense, painful rather than arousing. Your pussy throbs with overstimulation while your bowels cramp, creating a horrible combination of sensations. 'That's what happens when you try to manipulate medical staff for sexual gratification.' You're left there, messy, cramping, and painfully overstimulated, learning the hard difference between honest desire and manipulation.",
+                "humiliation": 520,
+                "regression": 1,
+                "mess": true,
+                "bladderDrain": 40,
+                "bowelDrain": 60,
+                "bowelFill": 100,
+                "statusEffect": "Punished Manipulator: Nurse Diana doesn't trust you. -25% success on SOCIAL and AROUSAL checks with staff for next 5 encounters."
+              }
+            }
+          ]
+        },
+        {
+          "gender": "nonbinary",
+          "scene": "You shuffle into the sterile examination room, the paper gown barely covering your already-diapered bottom. Nurse Diana waits beside a gleaming examination table, snapping on latex gloves with a sharp crack. 'Up on the table, sweetie. Legs spread wide. We need to establish your baseline continence levels before we can design your treatment plan.' Her smile is professionally warm, but her eyes gleam with something else as she pats the cold metal surface. A tray of instruments sits nearby - thermometers, various assessment tools, lubricant tubes.",
+
+          "choices": [
+            {
+              "risk": "SAFE",
+              "category": "SOCIAL",
+              "label": "Cooperate fully with the examination",
+              "successChance": 0.80,
+
+              "success": {
+                "narration": "You climb onto the table obediently, the cold metal making you gasp as your padded bottom settles against it. 'Good baby,' Nurse Diana coos, securing your position with practiced efficiency. She peels back the tapes of your diaper, exposing you completely to the cool air. Her gloved fingers examine you gently but thoroughly, checking your anatomy and responses with clinical precision. 'Good sensitivity. Healthy responses.' She produces a rectal thermometer, slicking it with lube before sliding it deep into your ass. You whimper as she holds it there, her other hand patting your thigh reassuringly like you're a child getting a routine checkup. 'Five minutes, sweetie. Stay nice and still for Nurse.' The thermometer fills you with constant pressure while she makes notes on her clipboard, occasionally glancing down at your exposed body. Being examined so clinically, so thoroughly, with your most intimate areas on display like a helpless infant makes you feel small and vulnerable. 'You're going to be very responsive to treatment,' she says, and somehow that feels less like a compliment and more like an assessment of how easily you'll be conditioned.",
+                "humiliation": 120,
+                "regression": 2,
+                "coins": 15,
+                "bladderDrain": 10,
+                "statusEffect": "Compliant Patient: +10% success chance on SOCIAL checks for next 3 encounters"
+              },
+
+              "failure": {
+                "narration": "You try to climb onto the table, but your hands tremble and slip on the metal surface. Your nervousness is obvious, and Nurse Diana's expression shifts from warm to stern. 'I see we have a reluctant patient. That's quite common on intake.' She presses a button, and suddenly two orderlies appear. They lift you bodily onto the table despite your protests, securing thick leather restraints around your wrists and ankles. 'Since you can't cooperate, we'll need to ensure you stay still.' The examination proceeds anyway, but now you're helplessly bound as she peels your diaper away. Her touch is rougher now, less patient, examining you clinically while you squirm uselessly in your bonds. The pressure from your position and your anxiety becomes too much - warmth suddenly spreads as you wet yourself involuntarily right there on the examination table. 'Oh my. Can't even hold it during a simple exam,' Nurse Diana observes, making a note. When she inserts the thermometer it's with a sharp thrust that makes you yelp. 'Bad babies get clinical treatment, not gentle care.' She leaves you restrained on the cold table, lying in your own puddle, thermometer lodged deep in your bottom while she completes her paperwork. The humiliation of being splayed open, bound, and having lost control like a frightened child makes your face burn crimson.",
+                "humiliation": 280,
+                "regression": 1,
+                "wet": true,
+                "bladderDrain": 5,
+                "bladderFill": 100,
+                "statusEffect": "Restrained: -15% success chance on ATHLETICS and STEALTH checks for next 2 encounters"
+              }
+            },
+
+            {
+              "risk": "MODERATE",
+              "category": "WILLPOWER",
+              "label": "Try to negotiate for a less invasive exam",
+              "successChance": 0.55,
+
+              "success": {
+                "narration": "'Nurse Diana, I... I understand you need information, but maybe we could start with something less intense?' Your voice wavers but holds firm. She pauses, tilting her head as she considers you. 'Well... you do seem more self-aware than most intakes. Perhaps we can try the external assessment first.' She has you lie back, but leaves your diaper on, instead running her hands over the padding, pressing and probing through the material. Her fingers trace the leg bands, testing how snugly they fit, then press firmly against your padded form, assessing your responses through the protective layer. 'Tell me when you feel pressure on your bladder.' She increases the pressure systematically, watching your face for reactions. The examination is still intimate, still embarrassing as she maps your body's responses, but you've maintained some dignity. 'Interesting. You have good awareness of your body. That will make conditioning more... challenging. More rewarding.' She makes extensive notes. 'We'll start you on a modified treatment plan - one that works with your self-awareness rather than against it.' Successfully negotiating has given you a small measure of control in this place where control is currency.",
+                "humiliation": 180,
+                "arousal": 3,
+                "coins": 25,
+                "bladderDrain": 15,
+                "statusEffect": "Negotiator: +15% success chance on SOCIAL checks with medical staff for next 3 encounters"
+              },
+
+              "failure": {
+                "narration": "'Nurse Diana, I don't think—' Your protest dies as her expression turns ice-cold. 'You don't THINK? Patients don't think here, sweetie. Patients OBEY.' She snaps her fingers and the orderlies appear instantly. 'Examination table. Full restraint protocol.' You're wrestled onto the table despite your struggles, thick leather cuffs locked around wrists, ankles, even your forehead to keep your head immobile. 'Since you wanted to negotiate, let's discuss what happens to patients who think they're in charge.' She rips your diaper off roughly, then produces a large inflatable plug. 'This is a retention trainer. It will stay inside you for the next hour, inflated, teaching your body what it means to be FULL and under MY control.' She pushes the plug into your ass without ceremony, then pumps it up until you're gasping, stretched obscenely around the intrusion. The pressure on your insides becomes overwhelming. Your bladder, already stressed from the situation, gives out first - you piss helplessly, unable to stop the flow. Then your bowels, protesting the massive intrusion, cramp violently. 'Hold it,' she commands, but you can't. Warm mess pushes out around the plug as you soil yourself involuntarily, your body betraying you completely. 'There. Now you understand your place.' She leaves you bound, plugged, lying in your own filth, learning that negotiation was never really an option. Your attempt to maintain control has resulted in losing all of it in the most humiliating way possible.",
+                "humiliation": 420,
+                "regression": 1,
+                "wet": true,
+                "mess": true,
+                "bladderDrain": 30,
+                "bowelDrain": 40,
+                "bladderFill": 100,
+                "bowelFill": 100,
+                "statusEffect": "Plugged and Broken: Constant fullness and loss of control. -20% on all checks for next 3 encounters. Automatic accidents very likely."
+              }
+            },
+
+            {
+              "risk": "RISKY",
+              "category": "AROUSAL",
+              "label": "Ask for a 'thorough' examination with intimate stimulation",
+              "successChance": 0.35,
+
+              "success": {
+                "narration": "'Nurse Diana... I've heard the intake exam can include sensitivity assessment. I'd like... I'd like the complete examination please.' Your voice drops, heat flooding your cheeks as you make the request explicit. Her eyes light up with genuine interest. 'Oh my. A patient who knows what they want and asks for it directly. How refreshing.' She doesn't just examine you - she indulges you. You're positioned comfortably on the table, and she takes her time. Her gloved hands explore your body with expert knowledge of anatomy and pleasure points. She uses specialized tools designed for stimulation, working methodically to map your responses. The sensations build gradually - her skilled touch bringing you toward climax with practiced precision. 'Excellent responsiveness,' she purrs as she continues her work. When she finally brings you to orgasm, it's intense - your body responding powerfully to her expert stimulation. 'Perfect. Strong physiological response.' She continues working you through the aftershocks, collecting data on your body's reactions. She cleans you only minimally before diapering you, leaving you sensitive and aware. 'Patients who are honest about their desires get rewarded.' Your body still tingles from the thorough attention.",
+                "humiliation": 200,
+                "arousal": 5,
+                "coins": 40,
+                "bladderDrain": 20,
+                "bowelDrain": 15,
+                "itemGained": "nurse_diana_favor",
+                "statusEffect": "Thoroughly Pleasured: Nurse Diana appreciates your honesty. +25% success on AROUSAL checks. Unlocks special encounters with her."
+              },
+
+              "failure": {
+                "narration": "'Please Nurse, I want the full examination, I need—' You try to sound confident and direct but it comes out desperate and needy in the wrong way. Nurse Diana's expression shifts to disappointment. 'Oh sweetie. You're asking for sexual gratification disguised as medical examination. That's manipulation, and we don't reward that here.' Her voice drops dangerously low. 'Let me show you the difference between therapeutic assessment and punishment.' She calls for the orderlies and has you strapped down completely. She produces a punishment enema bag filled with cold soapy water. 'Since you wanted something thorough, let's be very thorough indeed.' She forces the nozzle deep into your ass, then releases the flow. Your belly cramps immediately as two full quarts flood your bowels. 'Hold it. You're going to hold this for twenty minutes.' She plugs you to keep the enema trapped inside, your belly distending painfully. Your bowels cramp and spasm, desperate for release. The pressure becomes unbearable, and despite your best efforts, you lose control - warm mess explodes into the diaper she's placed under you as your body evacuates violently. But she's not done - she applies intense, overwhelming stimulation that borders on painful rather than pleasurable. 'That's what happens when you try to manipulate medical staff for sexual gratification.' You're left there, messy, cramping, and overwhelmed with uncomfortable sensations, learning the hard difference between honest desire and manipulation.",
+                "humiliation": 520,
+                "regression": 1,
+                "mess": true,
+                "bladderDrain": 40,
+                "bowelDrain": 60,
+                "bowelFill": 100,
+                "statusEffect": "Punished Manipulator: Nurse Diana doesn't trust you. -25% success on SOCIAL and AROUSAL checks with staff for next 5 encounters."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nursery_ward_medication_time",
+      "roomType": "NORMAL",
+      "requirements": {
+        "minRegression": 0,
+        "maxRegression": 500
+      },
+      "scene": "A cheerful chime sounds through the ward, followed by an announcement: 'Medication time for all patients!' Nurse Kevin approaches your crib with a tray containing several pills in a small cup and a baby bottle filled with pink liquid. His muscular frame and professional demeanor somehow make this more humiliating, not less. 'Alright little one, time for your daily treatments. These will help you relax into your therapy.' He rattles the pills. 'Muscle relaxants, bladder conditioning supplements, and a mild sedative to help you stop overthinking.' The bottle sloshes invitingly. 'And this formula contains additional hormones and conditioning agents. Open wide!'",
+
+      "choices": [
+        {
+          "risk": "SAFE",
+          "category": "GRIT",
+          "label": "Take the medication as prescribed",
+          "successChance": 0.75,
+
+          "success": {
+            "narration": "You open your mouth obediently and Nurse Kevin places the pills on your tongue, then tilts the bottle to your lips. 'Good baby. Drink it all down.' The formula is sweet, almost sickeningly so, with an artificial strawberry flavor that coats your tongue. You suckle the nipple instinctively, drawing down the thick liquid in steady swallows. 'That's right, nice and steady.' Warmth spreads through your belly as the medication takes effect. Your muscles loosen, tension draining from your limbs. Your bladder feels... different. Heavier. Less under your conscious control. The sedative makes everything feel soft and distant, wrapping you in pharmaceutical cotton. 'See? That wasn't so bad.' Nurse Kevin pats your padded bottom affectionately. 'You're going to feel nice and relaxed for your therapy sessions today.' He's right - you feel floaty, peaceful, and distinctly less adult. The conditioning agents are already working, making your diaper feel less like a humiliation and more like a comfort.",
+            "humiliation": 100,
+            "regression": 1,
+            "coins": 10,
+            "bladderDrain": 25,
+            "bowelDrain": 15,
+            "statusEffect": "Medicated: Relaxed and compliant. -10% on WILLPOWER checks but +15% on REGRESSION checks for next 4 encounters. Increased accident chance."
+          },
+
+          "failure": {
+            "narration": "You try to swallow the pills, but your throat rebels at the last second and you gag, spitting them back up. The formula goes down wrong and you cough violently, pink liquid dribbling down your chin. Nurse Kevin's friendly demeanor evaporates. 'Can't even take your medicine properly? Fine. We'll do this the hard way.' He produces a different bottle - this one with a much larger, firmer nipple. 'This is a hospital-grade feeding nipple. It delivers faster and you can't control the flow.' He also crushes the pills into powder and adds them to a new bottle of formula. 'Open. Now.' When you hesitate, he pinches your nose until you gasp for air, then forces the nipple deep into your mouth. The formula floods faster than you can swallow, making you gurgle and choke. He doesn't relent, holding the bottle firmly until it's empty. 'There. Was that so hard?' The medication hits your system in a rush, making you dizzy and nauseous. Your bladder control wavers dangerously and you feel your muscles going limp too fast. Warmth spreads through your diaper as you wet yourself helplessly, unable to stop the flow. 'Bad babies who can't take medicine properly get feeding schedules.' He marks something on your chart that looks ominous.",
+            "humiliation": 310,
+            "wet": true,
+            "bladderDrain": 45,
+            "bowelDrain": 20,
+            "bladderFill": 100,
+            "statusEffect": "Force-Fed: Overwhelming medication effects. -25% on all checks for next 3 encounters. Very high accident chance. Required feeding schedule."
+          }
+        },
+
+        {
+          "risk": "MODERATE",
+          "category": "WIT",
+          "label": "Question what's actually in the medication",
+          "successChance": 0.50,
+
+          "success": {
+            "narration": "'Nurse Kevin, can you tell me specifically what medications these are? I'd like to know what I'm consenting to take.' Your question is reasonable, measured. He pauses, then actually smiles with something like respect. 'Smart. Most patients just take what they're given.' He sits on the edge of your crib. 'Alright. The blue pill is a mild smooth muscle relaxant - it affects bladder and bowel sphincters primarily. The white one is actually a diuretic disguised as a supplement - makes you need to pee more frequently. The pink one is an anti-anxiety medication with mild sedative properties.' He taps the bottle. 'The formula contains a hormone blend - prolactin to enhance regression responses and make you more emotionally reactive, and some compounds that enhance sensitivity to touch and sensation.' He meets your eyes. 'Everything here is designed to make you more susceptible to conditioning. But knowing that... doesn't really stop it from working. So, will you take them willingly, with full knowledge? That's actually more powerful than taking them in ignorance.' You consider this, then nod and accept the medication. Taking it with full awareness somehow makes the effects even more intense. You FEEL yourself becoming more suggestible, more regressed, more controlled - and knowing it's happening makes it deliciously inescapable.",
+            "humiliation": 160,
+            "regression": 2,
+            "coins": 30,
+            "bladderDrain": 30,
+            "bowelDrain": 20,
+            "statusEffect": "Informed Consent: You know what's happening to you. +15% WIT checks but also experience conditioning more intensely. +20% regression gain from events for next 5 encounters."
+          },
+
+          "failure": {
+            "narration": "'What exactly is IN these pills? I have a right to know what—' Nurse Kevin's expression hardens. 'You have a RIGHT? Patients here have the right to TREATMENT. That's it.' He sets the tray down with a sharp clink. 'Fine. You want to know what's in them? Let me SHOW you.' He wheels over a hospital IV stand. 'Since you're refusing oral medication, we'll administer intravenously. Hospital policy.' Your protests mean nothing as he expertly inserts an IV line into your arm, taping it securely. 'This is triple the dosage of what those pills contained, administered directly to your bloodstream. Plus I'm adding a paralytic because you're being combative.' The drip begins and within seconds you feel it - a rushing wave of chemical warmth that obliterates your voluntary muscle control. Your bladder and bowels release immediately, helplessly, flooding your diaper with piss and pushing out a warm, mushy load as the muscle relaxants hit hard. The sedative makes your thoughts scatter like frightened birds. 'Still want to question your treatment plan?' Nurse Kevin asks as you lie there, messing and wetting yourself uncontrollably while the IV drips its potent cocktail into your veins. 'Didn't think so.' You're left like that for an hour, completely unable to control your body, learning your lesson in pharmaceutical chemistry the hard way. Your diaper grows impossibly heavy and saggy beneath you.",
+            "humiliation": 480,
+            "wet": true,
+            "mess": true,
+            "bladderDrain": 70,
+            "bowelDrain": 70,
+            "bladderFill": 100,
+            "bowelFill": 100,
+            "statusEffect": "IV Medicated: Heavily drugged. -40% on all checks for next 4 encounters. Cannot control accidents. Movement impaired."
+          }
+        },
+
+        {
+          "risk": "RISKY",
+          "category": "REGRESSION",
+          "label": "Beg for 'extra' medication to help with regression",
+          "successChance": 0.40,
+
+          "success": {
+            "narration": "'Nurse Kevin... please, I need more. I want to go deeper. Can you give me extra doses? I want to feel it more.' Your voice is breathy, desperate. He studies you carefully, then grins slowly. 'Oh, you're an eager little patient, aren't you?' He disappears and returns with additional medication. 'Alright baby. Let's really take you down deep.' He gives you double doses of everything, plus some additional pills. 'These are for enhanced emotional sensitivity. These are incontinence accelerators. And this...' he holds up a blue pill, 'is something we normally reserve for advanced patients. It makes you hypersensitive to regression triggers.' You take them all eagerly, washing them down with an entire large bottle of formula. The effects are immediate and overwhelming. Your body feels like it's melting, every nerve ending softening. Your bladder and bowels lose nearly all voluntary control, leaving you in a state of constant, desperate awareness that you could accident at any moment. 'Let's test your new sensitivity,' Nurse Kevin says, producing a pacifier. The moment it touches your lips you feel yourself slipping, the regression trigger hitting you with unexpected force. 'Perfect. You're going to be regressed deep today, baby.' He straps the pacifier in with a medical gag that keeps it firmly in your mouth. The constant sucking, combined with the medication, sends you spiraling into a genuine littlespace that feels more real than reality. Your diaper grows warm as your bladder releases without your permission, but you're too blissed out to care, just sucking contentedly on your paci.",
+            "humiliation": 180,
+            "regression": 4,
+            "coins": 50,
+            "wet": true,
+            "bladderDrain": 60,
+            "bowelDrain": 40,
+            "bladderFill": 100,
+            "itemGained": "advanced_regression_medication",
+            "statusEffect": "Deep Regression: Heavily medicated and in intense littlespace. +50% REGRESSION checks. -30% on adult checks. Frequent automatic accidents. Hypersensitive to triggers."
+          },
+
+          "failure": {
+            "narration": "'Please Nurse Kevin, I want MORE medication, I need—' You try to sound desperate and eager but it comes out manic and unstable. His professional assessment kicks in immediately. 'No. You're not asking for regression support. You're asking for dangerous overmedication.' He makes a note on your chart with sharp, decisive strokes. 'Patients who demonstrate addictive or self-destructive behavior regarding medication get a completely different treatment protocol.' He wheels in a different cart - this one containing punishment tools. 'Since you want to feel MORE, let's give you more sensation.' You're strapped into the crib as he produces a punishment suppository. 'This contains capsaicin. It's going to make your rectum burn like fire.' He forces it deep into your bottom despite your protests. Within seconds you're gasping as intense burning spreads through your backside, making you desperate to push it out - but he's secured a plug to keep it trapped inside. Your body fights the intrusion, bowels cramping around the burning suppository. 'And since you wanted medication effects...' He injects something that makes your body hypersensitive - every touch, every sensation amplified to uncomfortable levels. The texture of your diaper becomes overwhelmingly present. 'You'll stay like this until you learn that medication isn't a toy. Your ass burning, your body overstimulated.' He leaves you writhing in the crib. Eventually your cramping bowels can't hold it anymore and you mess yourself around the plug, the burning suppository mixing with your accident in a humiliating, uncomfortable mess.",
+            "humiliation": 550,
+            "mess": true,
+            "bladderDrain": 20,
+            "bowelDrain": 80,
+            "bowelFill": 100,
+            "statusEffect": "Punishment Protocol: Burning suppository and hypersensitivity. -35% on all checks. Desperate discomfort. Lasts 5 encounters."
+          }
+        }
+      ]
+    },
+    {
+      "id": "nursery_ward_enema_therapy",
+      "roomType": "NORMAL",
+      "requirements": {
+        "minRegression": 100,
+        "maxRegression": 800
+      },
+      "scene": "You're escorted into a specialized treatment room with medical-grade examination equipment and ominous enema apparatus hanging from IV stands. Dr. Martinez, a stern-looking woman in a white coat, reviews your chart. 'Your treatment plan indicates you need bowel retraining therapy. This will help condition your body to release on command rather than maintaining adult control.' She gestures to a padded table with restraint points. 'We'll be administering a retention enema - you'll hold it as long as possible while we observe your body's resistance. This teaches acceptance of bodily functions.' Several large enema bags hang ready, filled with soapy water. 'Let's begin your conditioning.'",
+
+      "choices": [
+        {
+          "risk": "SAFE",
+          "category": "GRIT",
+          "label": "Accept the treatment cooperatively",
+          "successChance": 0.75,
+
+          "success": {
+            "narration": "You climb onto the padded table without protest, positioning yourself on your side as instructed. 'Good patient,' Dr. Martinez approves. She peels back your diaper, exposing your bottom, then lubricates the enema nozzle thoroughly. You feel the cool tip press against your hole, then slide inside with practiced ease. 'Relaxing nicely. Excellent.' The warm soapy water begins flowing, filling your bowels with steady pressure. Your belly expands gradually as a full quart flows in. 'Hold it now. Let's see how long you can maintain control.' She removes the nozzle and replaces it with a small retention plug, keeping the enema trapped inside. The pressure builds, your insides cramping as the soapy water does its work. You focus on breathing, on holding, on maintaining what control you can. Minutes pass - five, then ten. Your body trembles with effort but you hold. 'Impressive. Fifteen minutes.' When she finally removes the plug and positions you over a training potty, the release is intense but controlled. 'Well done. You're learning to work with your body's signals rather than against them.' She diapers you in fresh padding, patting your bottom approvingly.",
+            "humiliation": 140,
+            "regression": 2,
+            "coins": 20,
+            "bowelDrain": 30,
+            "statusEffect": "Bowel Trained: Better awareness of bowel signals. +10% on GRIT checks involving continence for next 3 encounters."
+          },
+
+          "failure": {
+            "narration": "You try to climb onto the table but your nervousness makes you clumsy, nearly falling. Dr. Martinez's expression shifts to clinical disappointment. 'Uncooperative body language. We'll need assistance.' Orderlies appear and position you firmly on the table, securing your wrists and ankles with soft restraints. 'Since you can't hold still voluntarily, we'll ensure it.' The enema insertion is rougher now, less patient. The nozzle pushes deep, then the water flows - but it's cold this time, a punishment for your lack of cooperation. Your belly fills rapidly, cramping immediately as the frigid soapy water floods your bowels. She plugs you without warning. 'You'll hold this for twenty minutes. That's not negotiable.' But your body, already stressed and cramping from the cold, can't comply. Within five minutes you're whimpering, and at eight minutes your control shatters completely. Hot, liquid mess explodes around the plug, flooding into the diaper they've placed beneath you. The cramping continues, your bowels evacuating in waves while you're still restrained on the table. 'As expected. No self-control whatsoever.' Dr. Martinez makes notes while you lie there, helplessly messing yourself, learning that cooperation would have been far less humiliating.",
+            "humiliation": 340,
+            "regression": 1,
+            "mess": true,
+            "bowelDrain": 60,
+            "bowelFill": 100,
+            "statusEffect": "Enema Punished: Bowels are sensitized and unreliable. -15% on continence checks for next 4 encounters."
+          }
+        },
+
+        {
+          "risk": "MODERATE",
+          "category": "WILLPOWER",
+          "label": "Try to refuse the enema therapy",
+          "successChance": 0.45,
+
+          "success": {
+            "narration": "'Dr. Martinez, I don't consent to this procedure. I want it noted in my chart that I'm refusing this treatment.' Your voice is firm despite your fear. She pauses, studying you with new interest. 'Interesting. Most patients accept their treatment plans without question.' She sets down the enema equipment. 'Very well. Since you're asserting medical autonomy, let's discuss alternatives.' She sits across from you. 'The enema therapy is designed to break down your resistance to bodily functions. If you refuse it, we can substitute with a week-long course of aggressive laxatives that will achieve similar results - you'll have very little control regardless, but it will be through medication rather than direct intervention.' She tilts her head. 'Or, you accept one supervised enema now, on your terms, with full control over the process. Your choice.' You consider, then agree to the supervised option. She allows you to self-administer a smaller, warmer enema with her guidance. When you successfully hold and release it appropriately, she nods with something like respect. 'Autonomy with responsibility. We'll note this in your treatment plan.' You've maintained some dignity through assertiveness.",
+            "humiliation": 200,
+            "arousal": 2,
+            "coins": 35,
+            "bowelDrain": 20,
+            "statusEffect": "Medical Autonomy: Assertive with staff. +20% on WILLPOWER checks with medical personnel for next 4 encounters."
+          },
+
+          "failure": {
+            "narration": "'I refuse this treatment! You can't make me—' Your protest is cut off as orderlies respond to Dr. Martinez's signal. They lift you bodily onto the table, strapping you down completely despite your struggles. 'Patients who refuse medically necessary treatment get it administered under restraint. Hospital policy.' Your diaper is ripped away roughly. The enema nozzle is massive - a punishment size designed to be uncomfortable. It forces into your ass without adequate lubrication, making you cry out. 'Since you wanted to refuse, let's give you something worth refusing.' The water that flows is ice-cold and there's too much of it - two full quarts flooding your bowels until your belly distends painfully. A large inflatable plug is inserted and pumped up, sealing you completely. 'You'll hold this for thirty minutes. That's the penalty for refusal.' Your body rebels immediately, cramping violently, but the plug is too large to expel. You're left restrained and suffering, your belly aching and swollen, unable to find any relief. When time finally expires and they deflate the plug, you explode messily into the diaper beneath you, your body evacuating in humiliating waves while they watch clinically. Your refusal has earned you the worst version of what you tried to avoid.",
+            "humiliation": 500,
+            "mess": true,
+            "bowelDrain": 70,
+            "bowelFill": 100,
+            "statusEffect": "Forcibly Treated: Staff views you as combative. -30% on all SOCIAL checks with medical personnel for next 5 encounters. Bowel control severely compromised."
+          }
+        },
+
+        {
+          "risk": "RISKY",
+          "category": "AROUSAL",
+          "label": "Request to make the enema therapy 'thorough and stimulating'",
+          "successChance": 0.35,
+
+          "success": {
+            "narration": "'Dr. Martinez... I've read that enema therapy can be... enhanced with additional stimulation. I'd like to request the complete treatment protocol.' Your voice drops, heat flooding your face as you make the request explicit. Her eyebrow raises, then a slow smile spreads. 'Oh my. A patient who understands that medical procedures can serve multiple purposes. How delightfully honest.' She doesn't just administer an enema - she crafts an experience. You're positioned on the table, and she takes her time. The enema nozzle slides in slowly, deliberately, designed to stimulate your most sensitive internal areas. The warm water flows gently, filling you with a fullness that borders on arousing. But she doesn't stop there. While you hold the enema, she produces a vibrator and presses it against your most sensitive external spots through a thin medical pad. 'Retention therapy is much more effective when paired with distraction techniques,' she purrs, but the gleam in her eye says she knows exactly what she's doing. The combination is overwhelming - the internal pressure from the enema, the external stimulation from the vibrator, the clinical setting making it all more intense. She edges you deliberately, watching your body's responses with professional interest. When she finally allows you to release - both the enema and your building orgasm - it's explosive. You climax hard while simultaneously evacuating your bowels into the designated receptacle, the dual release overwhelming your senses. 'Perfect conditioning response. Sexual pleasure paired with release of bodily control - your brain is forming very useful associations.' She cleans you thoroughly, hands lingering just long enough to make you shiver, then diapers you in soft padding. 'Honest patients get rewarded.'",
+            "humiliation": 220,
+            "arousal": 5,
+            "coins": 45,
+            "bowelDrain": 25,
+            "itemGained": "dr_martinez_favor",
+            "statusEffect": "Pleasurable Conditioning: Enemas are now associated with arousal. +30% on AROUSAL checks involving similar scenarios. Unlocks special encounters with Dr. Martinez."
+          },
+
+          "failure": {
+            "narration": "'Doctor, I want the enema but could you make it more... stimulating? I've heard there are special techniques—' You try to sound confident but it comes out desperate and inappropriate. Dr. Martinez's expression turns ice-cold. 'Are you asking me to sexualize a medical procedure? Are you requesting sexual services from medical staff?' Her voice could freeze nitrogen. 'That is absolutely unacceptable.' She signals the orderlies. 'Full punishment protocol for sexual misconduct.' You're strapped down completely, immobilized. The enema she administers is pure punishment - ice-cold water mixed with an irritating additive that makes your insides burn and cramp. Three full quarts flood your bowels until you're sobbing. An enormous plug seals you shut. But that's not the worst part. She attaches electrodes to your most sensitive areas and sets them to deliver sharp, painful pulses every thirty seconds. 'Since you wanted stimulation, here's your stimulation.' It's agony, not pleasure - the cramping enema combined with the painful electrical shocks. You're left like that for a full hour, your body in distress, learning the difference between honest requests and sexual harassment of staff. When they finally release the plug, you mess yourself violently while still restrained, the combination of pain and humiliation absolute. 'That's what happens when you sexualize medical procedures inappropriately.' Your arousal is gone, replaced by genuine suffering.",
+            "humiliation": 580,
+            "mess": true,
+            "bowelDrain": 80,
+            "bowelFill": 100,
+            "statusEffect": "Sexual Misconduct Flag: All staff are hostile. -40% on all checks with medical personnel for next 7 encounters. Marked as high-risk patient."
+          }
+        }
+      ]
+    },
+    {
+      "id": "nursery_ward_fellow_patient",
+      "roomType": "NORMAL",
+      "requirements": {
+        "minRegression": 50,
+        "maxRegression": 600
+      },
+      "scene": "During supervised playtime in the ward's common nursery, you notice another patient - Alex - sitting alone in the corner, building blocks scattered around them. They're wearing a thick diaper under a hospital gown, and unlike most patients who seem deeply regressed, Alex makes deliberate eye contact with you. Their expression is knowing, aware. When the nurse monitoring the room steps away briefly, Alex whispers urgently: 'Hey. You still in there? Still yourself?' They gesture subtly toward the door. 'I've been mapping staff schedules. There's a supply closet two doors down that's unlocked during shift changes. Could hide there, maybe find regular clothes, make a break for it.' They pause. 'Or... we could just talk. Compare notes about treatments. Figure out what's actually happening here.' Their diaper crinkles audibly as they shift position, but their eyes remain sharp and adult.",
+
+      "choices": [
+        {
+          "risk": "SAFE",
+          "category": "SOCIAL",
+          "label": "Sit and talk with Alex, share treatment experiences",
+          "successChance": 0.80,
+
+          "success": {
+            "narration": "You settle down next to Alex, keeping your voice low. 'Yeah, I'm still aware. Mostly.' You both speak in hushed tones, comparing notes. Alex explains they've been here three weeks, that the medications build up over time, that the conditioning is subtle but effective. 'The trick is to go with it just enough to avoid punishment, but maintain your internal self. Remember who you are.' They share useful information: which nurses are strictest, which doctors are most lenient, when the medication doses are lowest. This is valuable intelligence. You share your own observations in return. For twenty minutes you both maintain the pretense of playing with toys while actually having the most adult conversation you've had since intake. 'We're not trying to escape,' Alex says finally. 'We're trying to survive with our minds intact until... whatever the endgame is.' They squeeze your hand briefly. 'Good to know I'm not alone in here.' When the nurse returns, you both seamlessly shift back into patient mode, but now you have an ally. Someone who understands.",
+            "humiliation": 80,
+            "regression": 1,
+            "coins": 25,
+            "itemGained": "alex_alliance",
+            "statusEffect": "Allied Patient: You have a secret ally in Alex. +15% on WIT and WILLPOWER checks. Can access special resistance options in future encounters."
+          },
+
+          "failure": {
+            "narration": "You start to sit down next to Alex, but a nurse appears seemingly out of nowhere. 'What are you two doing?' Her voice is sharp, suspicious. Alex immediately drops into a more regressed persona. 'Just... just playing blocks!' But you're too slow to follow suit, your adult expression still visible. The nurse's eyes narrow. 'Were you talking? Using grown-up words?' She checks both your charts, then makes notes. 'Alex, you were doing so well. And you—' she points at you, '—are clearly not embracing your treatment.' She calls for backup. Both of you are taken to separate 'time-out cribs' - medical cribs with locking lids that trap you inside. 'You'll spend the next three hours in isolation thinking about the rules.' Worse, she increases both your medication dosages in your charts. The attempt to connect with another aware patient has been noticed and punished. Through the bars of your crib, you can see Alex in their own confinement across the room. They mouth 'sorry' but the damage is done. Your attempt to maintain adult connections has marked you both as resistant patients.",
+            "humiliation": 280,
+            "regression": 2,
+            "bladderDrain": 20,
+            "statusEffect": "Marked Resistant: Staff watches you closely. -20% on stealth and deception attempts for next 4 encounters. Increased medication dosage."
+          }
+        },
+
+        {
+          "risk": "MODERATE",
+          "category": "STEALTH",
+          "label": "Attempt to sneak to the supply closet with Alex",
+          "successChance": 0.50,
+
+          "success": {
+            "narration": "You and Alex wait for the perfect moment - when the monitoring nurse is distracted with another patient's diaper change. Moving as casually as possible, you both waddle toward the door, the crinkle of your diapers seeming deafeningly loud. The hallway is empty. You reach the supply closet and slip inside, Alex closing the door quietly behind you. Inside are shelves of medical supplies, extra diapers, and - jackpot - a small locker of staff personal items. Alex quickly searches it, finding a nurse's phone. 'Just needed to see the outside world for a second,' they whisper, scrolling through news sites with desperate hunger. You find a mirror and barely recognize yourself - infantilized, diapered, smaller somehow. You both also find extra supplies: pacifiers, some medication samples Alex pockets, a map of the facility. After five minutes you hear footsteps and freeze, but they pass by. You successfully sneak back into the nursery separately, rejoining the other patients without being noticed. Alex catches your eye later and nods slightly. You've successfully resisted, even just for a few minutes, and proven you still can. The small rebellion feels like a victory.",
+            "humiliation": 120,
+            "arousal": 3,
+            "coins": 40,
+            "itemGained": "contraband_supplies",
+            "statusEffect": "Successful Rebellion: Confidence boost. +20% on STEALTH checks for next 3 encounters. Hidden supplies available for later use."
+          },
+
+          "failure": {
+            "narration": "You and Alex make your move, waddling toward the door as casually as possible. You almost make it - the door is right there - when a firm hand grabs your shoulder. 'And just where do you think you're going, little ones?' It's Nurse Kevin, and he does NOT look pleased. Alex is caught by another orderly. 'Were you trying to ESCAPE? During supervised playtime?' You're both marched immediately to Dr. Martinez's office. The punishment is swift and severe. First, you're both put in heavy restraint mittens so you can't use your hands properly. Then your already-thick diapers are changed for even bulkier overnight ones that make walking almost impossible. 'Since you tried to sneak away, you'll wear these mega-thick diapers for the next week. Can't sneak anywhere when you waddle like toddlers.' Worse, you're both given immediate enemas - not therapeutic ones, but punishment enemas with cold water that make you both mess your new thick diapers within minutes of being put back in the nursery. The other patients stare as you both waddle back in, obviously freshly messy, your escape attempt written on your faces in humiliation. Alex won't make eye contact with you now - your failed rebellion has made things worse for both of you.",
+            "humiliation": 450,
+            "mess": true,
+            "bowelDrain": 50,
+            "bowelFill": 100,
+            "statusEffect": "Failed Escape: Wearing maximum-thickness restraint diapers. -30% on ATHLETICS and STEALTH. Cannot use hands properly. Lasts 7 encounters. Alex now avoids you."
+          }
+        },
+
+        {
+          "risk": "RISKY",
+          "category": "REGRESSION",
+          "label": "Suggest to Alex that you both stop resisting and embrace the regression together",
+          "successChance": 0.40,
+
+          "success": {
+            "narration": "'Alex... what if we're fighting the wrong battle?' you whisper. 'What if instead of resisting, we just... let go? Together?' Alex looks at you like you're crazy at first, but then something shifts in their expression. 'You mean... actually regress? Voluntarily?' You nod. 'It might be easier. Less painful. And if we're both doing it, maybe less lonely.' Alex is quiet for a long moment, then slowly nods. 'Okay. Let's try.' You both make a silent pact right there. When the nurse returns, neither of you try to hide your childish play. You actually engage with the toys, making silly sounds, letting yourself be small. Alex does the same, and when you catch each other's eyes, there's understanding there. Over the next hour you both slip deeper, but together. When you wet your diaper, not fighting it, just letting it happen, you see Alex do the same moments later. The nurse notices the change. 'Oh my goodness, what good babies you both are today!' She rewards you both with juice boxes and extra praise. It should be humiliating - and it is - but there's also something freeing about surrendering together. You've found a different kind of alliance: regression companions who understand exactly what the other is experiencing. When you're both changed together on adjacent changing tables, Alex reaches over and squeezes your hand. You're regressing, but you're not alone.",
+            "humiliation": 180,
+            "regression": 4,
+            "coins": 35,
+            "wet": true,
+            "bladderFill": 100,
+            "itemGained": "regression_companion_alex",
+            "statusEffect": "Regression Buddies: You and Alex support each other's regression. +30% on REGRESSION checks. Unlocks cooperative regression events. Shared littlespace experiences."
+          },
+
+          "failure": {
+            "narration": "'Alex, what if we just... stopped fighting? Embraced this?' You try to sound convincing but it comes out weak, defeated. Alex's expression hardens. 'Are you fucking kidding me? You want to just GIVE UP? Just become what they want?' They scoot away from you. 'I thought you were still in there. Still fighting. But you're just another patient ready to break.' Their voice rises slightly, attracting attention. A nurse approaches. 'Is everything okay here?' Alex points at you. 'They're trying to get me to stop taking my therapy seriously. Trying to make me regress more.' The betrayal stings, but you realize Alex saw your suggestion not as partnership but as capitulation. The nurse's expression turns concerned. 'Is that true? Are you trying to sabotage another patient's recovery?' You try to explain but it comes out wrong. You're taken away for 'individual counseling' which turns out to be an intensive regression therapy session. For two hours you're subjected to concentrated infantilization: forced bottle feeding, repeated diaper changes whether needed or not, constant baby talk, and finally a suppository that makes you mess yourself helplessly while being treated like an infant. When you're returned to the nursery, deeply regressed and genuinely helpless, Alex is gone - transferred to another wing. Your attempt to find an ally in regression has instead left you more alone and more broken than before.",
+            "humiliation": 520,
+            "regression": 3,
+            "mess": true,
+            "bowelDrain": 60,
+            "bowelFill": 100,
+            "statusEffect": "Saboteur Reputation: Other aware patients avoid you. -35% on SOCIAL checks with patients. Intensive regression protocols applied. Alex transferred away."
+          }
+        }
+      ]
+    },
+    {
+      "id": "nursery_ward_restraint_therapy",
+      "roomType": "NORMAL",
+      "requirements": {
+        "minRegression": 150,
+        "maxRegression": 700,
+        "mustBeWetOrMessy": true
+      },
+      "scene": "You're brought into a specialized therapy room filled with various restraint equipment - medical cribs with locking tops, padded restraint chairs, straitjackets modified for diaper access, and spread bars. Nurse Diana is waiting, reviewing your chart. 'Your treatment plan indicates you need dependency conditioning. We've noticed you still try to maintain control during diaper changes, still show adult modesty.' She gestures to a padded restraint table in the center of the room. 'This session will teach your body that you are not in control of when, where, or how you're cared for. Your current diaper state is perfect - you're already messy and wet, which makes this more effective.' She holds up leather cuffs lined with soft padding. 'We're going to restrain you, leave you in your soiled diaper for an extended period, then change you on our schedule, not yours. This teaches acceptance.' The clinical way she describes it somehow makes it more humiliating, not less.",
+
+      "choices": [
+        {
+          "risk": "SAFE",
+          "category": "GRIT",
+          "label": "Accept the restraint therapy without resistance",
+          "successChance": 0.75,
+
+          "success": {
+            "narration": "You climb onto the padded table without protest, lying back and extending your arms and legs toward the attachment points. 'Good baby. Such cooperation.' Nurse Diana secures the soft leather cuffs around your wrists and ankles, then adds a strap across your chest to prevent you from sitting up. You're spread and exposed, your messy, wet diaper on full display. She doesn't change you - that's the point. Instead she adjusts the table so you're slightly reclined, comfortable enough to endure but unable to shift your weight off your soiled padding. 'We'll leave you like this for ninety minutes. I want you to really feel your helplessness, feel what it means to be completely dependent.' She's not wrong - as the minutes pass, the reality sinks in. You can't escape the sensation of your own mess, can't adjust position, can't do anything but lie there and accept your state. It's deeply humiliating but also, in a strange way, freeing. You have no choice, so there's no point in fighting. When she finally returns and begins your change, releasing you from the restraints and cleaning you thoroughly, the relief is profound. 'You did very well. Learning to accept care is an important step.' You feel simultaneously degraded and oddly proud of enduring.",
+            "humiliation": 160,
+            "regression": 2,
+            "coins": 20,
+            "statusEffect": "Restraint Trained: Better acceptance of helplessness. +15% on GRIT checks involving restraint or forced care for next 4 encounters."
+          },
+
+          "failure": {
+            "narration": "You try to lie still as Nurse Diana approaches with the restraints, but your body betrays you - you flinch when she reaches for your wrist, muscles tensing involuntarily. 'Oh, you're afraid. How precious.' Her tone shifts from clinical to stern. 'We'll need the full immobilization protocol for fearful patients.' Instead of the gentle table restraints, orderlies wheel in a different device - a specialized restraint system that locks your head, torso, arms, and legs separately in an spread position that leaves you completely unable to move even an inch. 'Since you showed fear, we need to ensure you can't hurt yourself struggling.' The immobilization is total and claustrophobic. Your messy diaper presses heavily against you, and you can't shift even slightly to find relief. Worse, they leave you like this for three full hours instead of ninety minutes. The sensory experience is overwhelming - every nerve ending in your lower half screaming awareness of your soiled state, the smell inescapable, the feeling of the mess spreading against your skin unavoidable. You do struggle at first, pulling against restraints that don't budge even a fraction of an inch. Eventually you stop from exhaustion, lying there in your own filth, truly broken. When they finally release you and change you, you're shaking and on the verge of tears. The extended helplessness has taught you a lesson, but at significant psychological cost.",
+            "humiliation": 380,
+            "regression": 1,
+            "bladderDrain": 30,
+            "statusEffect": "Restraint Trauma: Deep fear of immobilization. -25% on checks when restrained. Increased anxiety for next 5 encounters."
+          }
+        },
+
+        {
+          "risk": "MODERATE",
+          "category": "WILLPOWER",
+          "label": "Argue that restraint therapy is excessive for your treatment needs",
+          "successChance": 0.45,
+
+          "success": {
+            "narration": "'Nurse Diana, I understand the therapeutic goal, but I don't think full restraint is necessary for me to learn dependency. I'm already compliant with changes and care.' Your argument is logical, measured. She pauses, actually considering. 'You make a fair point. You haven't been resistant during care routines.' She reviews your chart more carefully. 'Alright. Modified protocol. Instead of full restraints, we'll use a compromise.' She produces a modified sleep sack - essentially a thick cloth bag that zips up and prevents you from using your hands but leaves your legs somewhat mobile. 'You'll wear this for one hour in your current diaper state. You can move around the nursery but you can't change yourself or even touch your diaper. You must ask for help when you're ready.' She zips you into the sack, your arms trapped at your sides. It's still restraining, still humiliating to waddle around the nursery unable to use your hands while in a messy diaper, but it's far less intense than full immobilization. Other patients stare, and one nurse coos 'what a helpless little thing!' as you pass. But you maintain your dignity through it. After an hour, you politely ask Nurse Diana for a change and she complies efficiently. 'You negotiated successfully and still learned the lesson. That shows good insight.' You've managed to reduce the severity while still participating in treatment.",
+            "humiliation": 220,
+            "arousal": 2,
+            "coins": 30,
+            "statusEffect": "Thoughtful Patient: Staff recognizes your reasonable approach. +20% on WILLPOWER checks when negotiating treatment for next 4 encounters."
+          },
+
+          "failure": {
+            "narration": "'This is excessive! Restraint therapy is unethical and I demand to speak to a supervisor about—' Your protest is cut short as Nurse Diana's expression turns to ice. 'Demand? You DEMAND?' She slams your chart down. 'Patients who question medical protocols and make demands get exactly what they're trying to avoid - the full experience.' She signals orderlies who immediately grab you. They don't just restrain you to the table - they strap you into a specialized punishment restraint system with multiple intrusion points. A ring gag forces your mouth open. Your arms are pulled back and secured behind you. Your legs are spread and locked in stirrups that can't close. But worst of all, they insert an inflatable plug into your already-messy diaper, pumping it up until you're gasping around the gag, stretched and filled uncomfortably. 'You'll spend four hours like this, in your mess, gagged, plugged, completely helpless. THIS is what actual excessive restraint looks like. Everything else we do is gentle by comparison.' She leaves you there, and the hours that follow are genuinely traumatic. The gag makes you drool uncontrollably. The plug keeps you constantly aware of the mess surrounding it. Your inability to close your legs means your soiled diaper is on full display to anyone who enters. Staff members come and go, checking on you but never offering relief. When finally released, you're genuinely broken, understanding viscerally that questioning protocol only makes things worse.",
+            "humiliation": 550,
+            "regression": 2,
+            "bowelDrain": 40,
+            "statusEffect": "Severely Punished: Traumatized by excessive restraint. -35% on all checks for next 6 encounters. Staff views you as problematic. Nightmares and anxiety."
+          }
+        },
+
+        {
+          "risk": "RISKY",
+          "category": "AROUSAL",
+          "label": "Request that the restraints include 'stimulation elements' for enhanced therapy",
+          "successChance": 0.35,
+
+          "success": {
+            "narration": "'Nurse Diana... I've read about therapeutic restraint with integrated stimulation. I think I'd respond better to the dependency training if there were... additional sensory elements.' Your face burns as you make the request explicit. Her eyebrows raise, then she grins slowly. 'Oh? You want to combine restraint with pleasure? How wonderfully honest about what actually motivates you.' She doesn't just restrain you - she creates an experience. The table you're strapped to has built-in vibration elements that she activates at low intensity. Your arms and legs are secured, but comfortably, with soft restraints that feel almost sensual. She positions a wand vibrator so it rests against your diaper's padding, directly over your most sensitive areas. 'Now, here's the therapeutic element: you'll remain in your messy, wet diaper while experiencing continuous stimulation. Your body will learn to associate helplessness and infantilization with pleasure.' She turns on the vibrator and leaves you there. The sensation is overwhelming - the humiliation of lying in your own mess combined with the insistent vibration against your padded, soiled crotch. You can't escape either sensation. Your arousal builds despite (or because of) the degrading circumstances. After twenty minutes you cum hard in your messy diaper, the orgasm intense and shameful. But she doesn't stop the vibrator. It continues, forcing you into oversensitivity, then building you toward a second climax. By the time she returns ninety minutes later, you've climaxed three times in your filthy diaper, your body completely conditioned to associate messy helplessness with intense pleasure. When she finally changes you, cleaning your overstimulated, sensitive areas thoroughly, you're a trembling mess. 'Perfect conditioning. Your body now craves this.' She's right - you already want it again.",
+            "humiliation": 240,
+            "arousal": 5,
+            "coins": 50,
+            "itemGained": "conditioning_equipment_access",
+            "statusEffect": "Pleasure Conditioned: Restraint and mess now trigger arousal. +35% on AROUSAL checks. Unlocks specialized conditioning events. Cravings for similar scenarios."
+          },
+
+          "failure": {
+            "narration": "'Nurse Diana, could we add some stimulation devices to the restraints? I think it would help me respond better—' You try to sound clinical but it comes out desperate and sexual. Her expression turns sharply disapproving. 'Are you seriously asking me to combine therapeutic restraint with sexual gratification? That's completely inappropriate.' She marks something ominous in your chart. 'Patients who sexualize medical procedures inappropriately get corrective conditioning.' The restraint they strap you into is punishment-focused. Your limbs are secured in stress positions that are uncomfortable but not quite painful. Electrodes are attached to your inner thighs, buttocks, and lower abdomen. 'You wanted stimulation? Here's stimulation.' The electric pulses that course through you are sharp, painful, making your muscles contract involuntarily. It's the opposite of pleasure - pure discomfort. And they leave you like this, in your messy diaper, with painful pulses firing every thirty seconds, for three full hours. Each shock makes you tense, which presses you further into your own mess. Your bladder lets go involuntarily multiple times from the shock-induced contractions, further soaking your already-disgusting diaper. There's nothing erotic about this - it's pure punishment, teaching you that sexualizing medical care leads to genuine suffering. When finally released and changed, you're exhausted and traumatized, your inappropriate request resulting in the opposite of what you wanted.",
+            "humiliation": 580,
+            "wet": true,
+            "bladderDrain": 50,
+            "bladderFill": 100,
+            "statusEffect": "Correctively Conditioned: Painful association with inappropriate requests. -40% on AROUSAL checks with staff. Fear of restraint. Lasts 6 encounters."
+          }
+        }
+      ]
+    }
+  ]
+}

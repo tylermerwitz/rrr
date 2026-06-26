@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * Seeds the small pool of reward items that event "New Item" consequences can grant. Authored
- * branches reference these by name (see {@code events.json} {@code itemReward}). Idempotent: each
+ * branches reference these by name (see {@code events_floor_1.json} {@code itemReward}). Idempotent: each
  * item is only created if its name isn't already in the catalog, so it's safe across restarts.
  *
  * <p>These stats/names/themes are a starting set meant to be tuned — edit freely.

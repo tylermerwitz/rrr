@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 /**
  * Resolves a chosen action against an authored event: rolls the choice's success chance, selects
  * the matching success/failure branch, and applies that branch's exact authored consequences. No
- * model, no computed humiliation — every number and every line of prose comes from {@code events.json}.
+ * model, no computed humiliation — every number and every line of prose comes from {@code events_floor_1.json}.
  */
 @Service
 @RequiredArgsConstructor
