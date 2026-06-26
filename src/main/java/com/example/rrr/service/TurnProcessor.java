@@ -2,35 +2,34 @@ package com.example.rrr.service;
 
 import com.example.rrr.dto.PlayerMeta;
 import com.example.rrr.dto.PlayerRun;
+import com.example.rrr.model.AccidentReport;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.Random;
 
 @Service
 @RequiredArgsConstructor
 public class TurnProcessor {
 
     private final AccidentService accidentService;
-    private final DeathService deathService;
 
     /**
-     * Returns the run that is active after this turn: the same run if the
-     * player survived, or a new hub run if this turn killed them.
+     * Applies this turn's passive mechanics to the run (bladder/bowel drain, accident checks),
+     * mutating it in place, and returns which involuntary accidents fired so they can be narrated.
+     * Death is NOT handled here: a turn can push humiliation past the breaking point, but the
+     * respawn is deferred to the orchestration layer so the breaking can be narrated against the
+     * dying run before it's reset (see {@link DeathService#isFatal}).
      */
-    public PlayerRun processTurn(PlayerMeta meta, PlayerRun run) {
+    public AccidentReport processTurn(PlayerMeta meta, PlayerRun run) {
 
         drainBladder(run);
         drainBowel(run);
 
-        accidentService.checkAccidents(meta, run);
-
-        return deathService.checkDeath(meta, run);
+        return accidentService.checkAccidents(meta, run);
     }
 
     private void drainBladder(PlayerRun run) {
 
-        double drain = 1.0 + run.getRandom().nextDouble(); // 1.0 to 2.0
+        double drain = 1.0 + run.nextDouble(); // 1.0 to 2.0
         run.setBladderPercent(
                 Math.max(0, run.getBladderPercent() - drain)
         );
@@ -38,7 +37,7 @@ public class TurnProcessor {
 
     private void drainBowel(PlayerRun run) {
 
-        double bladderDrain = 1.0 + run.getRandom().nextDouble();
+        double bladderDrain = 1.0 + run.nextDouble();
         double bowelDrain = bladderDrain / 4.0;
 
         run.setBowelPercent(

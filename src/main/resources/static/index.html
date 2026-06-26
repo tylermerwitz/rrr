@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Regression Realm — Player Test Client</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header id="topbar" class="hidden">
+    <div class="topbar-left">
+        <span id="stat-name">-</span>
+        <button id="btn-switch-player" class="link-btn">switch player</button>
+    </div>
+    <div class="topbar-stats">
+        <span>Deaths: <b id="stat-deaths">0</b></span>
+        <span>Regression: <b id="stat-regression">0</b></span>
+        <span>Arousal: <b id="stat-arousal">0</b></span>
+        <span>Coins: <b id="stat-coins">0</b></span>
+        <span>Floor: <b id="stat-floor">-</b></span>
+        <span>Location: <b id="stat-location">-</b></span>
+    </div>
+    <div class="topbar-stats">
+        <span>Humiliation: <b id="stat-humiliation">0</b>/2000</span>
+        <span>Bladder: <b id="stat-bladder">0</b>%</span>
+        <span>Bowel: <b id="stat-bowel">0</b>%</span>
+    </div>
+    <div class="topbar-stats">
+        <span>Diaper — <b id="stat-wetness">Dry</b> / <b id="stat-mess">Clean</b></span>
+    </div>
+</header>
+
+<div id="error-banner" class="hidden"></div>
+
+<div id="llm-loading" class="hidden">
+    <div class="llm-loading-box">
+        <div class="llm-spinner"></div>
+        <p class="llm-loading-text">Loading LLM Response<span class="llm-dots"></span></p>
+    </div>
+</div>
+
+<main id="app">
+
+    <section id="screen-login" class="screen">
+        <h1>Regression Realm</h1>
+        <p class="muted">Manual test client — drives the real REST API as if you were the game client.</p>
+        <label for="input-player-id">Player ID</label>
+        <input id="input-player-id" type="number" min="1" value="1">
+        <button id="btn-start">Enter Game</button>
+    </section>
+
+    <section id="screen-hub" class="screen hidden">
+        <h2>The Hub</h2>
+        <p class="muted">You always start here, and you always end up back here when you die.</p>
+        <div class="hub-options">
+            <button id="btn-hub-equipment" class="hub-btn">1) Change Equipment</button>
+            <button id="btn-hub-shop" class="hub-btn">2) Visit the Shop</button>
+            <button id="btn-hub-mirror" class="hub-btn">3) Look in the Mirror</button>
+            <button id="btn-hub-enter" class="hub-btn danger">4) Enter the Regression Realm</button>
+        </div>
+    </section>
+
+    <section id="screen-mirror" class="screen hidden">
+        <h2>The Mirror</h2>
+        <div id="mirror-content"></div>
+        <button class="back-btn" data-back="hub">Back to Hub</button>
+    </section>
+
+    <section id="screen-equipment" class="screen hidden">
+        <h2>Change Equipment</h2>
+        <div class="equip-columns">
+            <div>
+                <h3>Equipped</h3>
+                <ul id="equipped-list" class="item-list"></ul>
+            </div>
+            <div>
+                <h3>Unlocked (not equipped)</h3>
+                <ul id="unlocked-list" class="item-list"></ul>
+            </div>
+        </div>
+        <button class="back-btn" data-back="hub">Back to Hub</button>
+    </section>
+
+    <section id="screen-shop" class="screen hidden">
+        <h2>Shop</h2>
+        <p>Coins available: <b id="shop-coins">0</b></p>
+        <ul id="shop-list" class="item-list"></ul>
+        <button class="back-btn" data-back="hub">Back to Hub</button>
+    </section>
+
+    <section id="screen-floor" class="screen hidden">
+        <h2>The Regression Realm — Floor <span id="floor-number">1</span></h2>
+
+        <div id="floor-death-banner" class="hidden death-banner">
+            <h3>You Broke</h3>
+            <p id="death-narration-text" class="death-narration">You wake up back in the Hub.</p>
+            <button id="btn-continue-after-death">Continue</button>
+        </div>
+
+        <div id="floor-live">
+            <div id="narration-panel">
+                <p id="narration-text" class="muted">The encounter is beginning...</p>
+                <div id="narration-choices" class="choice-list"></div>
+            </div>
+
+            <div id="outcome-panel" class="hidden">
+                <p id="outcome-summary" class="muted"></p>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -43,8 +43,8 @@ public class PlayerMeta {
         this.totalDeaths = 0;
         this.regressionPoints = 0;
         this.arousalPoints = 0;
-        this.bladderBase = 90.0;
-        this.bowelBase = 95.0;
+        this.bladderBase = 100.0;
+        this.bowelBase = 100.0;
         this.coins = 0;
         this.createdAt = LocalDateTime.now();
     }

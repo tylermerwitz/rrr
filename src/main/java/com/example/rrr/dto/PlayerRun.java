@@ -28,11 +28,23 @@ public class PlayerRun {
     private int runNumber;
 
     private int humiliation;          // 0 - 2000
-    private double bladderPercent;    // 0 - 100
-    private double bowelPercent;      // 0 - 100
+    private double bladderPercent;    // 0 - 100 (control remaining; 0 = wetting accident)
+    private double bowelPercent;      // 0 - 100 (control remaining; 0 = messing accident)
+
+    /**
+     * Accumulating saturation of the currently-worn diaper. These persist across turns and
+     * floors within a run (there's no mid-run change), and only reset to 0 — a fresh diaper —
+     * on a new run or respawn. Each wetting/messing accident adds to them; the magnitude lets
+     * the narrator describe not just whether the diaper is used, but how heavily.
+     */
+    private int diaperWetness;        // 0 = dry, grows with each wetting
+    private int diaperMessiness;      // 0 = clean, grows with each messing
 
     private int currentFloor;
     private boolean active;
+
+    /** Id of the room the player currently occupies on the active floor (null in the hub). */
+    private String currentRoomId;
 
     @Enumerated(EnumType.STRING)
     private GameLocation location;
@@ -40,6 +52,22 @@ public class PlayerRun {
     private LocalDateTime startedAt;
 
     private long worldSeed;
+
+    /**
+     * Number of random draws taken so far this run. Persisted so the RNG can be
+     * replayed to its current position after each stateless request reload —
+     * otherwise the transient Random resets to the seed every turn and every roll
+     * is identical.
+     */
+    private long randomDraws;
+
+    /**
+     * The most recent screen (narration + choices), serialized as JSON, so the floor screen can be
+     * re-rendered on a plain state reload without re-rolling the outcome. Reset with the floor.
+     */
+    @JsonIgnore
+    @Lob
+    private String lastNarration;
 
     @JsonIgnore
     @Transient
@@ -62,11 +90,14 @@ public class PlayerRun {
         this.humiliation = 0;
         this.bladderPercent = player.getBladderBase();
         this.bowelPercent = player.getBowelBase();
+        this.diaperWetness = 0;
+        this.diaperMessiness = 0;
         this.currentFloor = 1;
         this.active = true;
         this.location = GameLocation.HUB;
         this.startedAt = LocalDateTime.now();
         this.worldSeed = seed;
+        this.randomDraws = 0;
         this.random = new Random(seed);
     }
 
@@ -98,12 +129,50 @@ public class PlayerRun {
         this.bowelPercent = Math.max(0, this.bowelPercent - amount);
     }
 
+    /** Restores bladder control, clamped at the player's permanent max. The inverse of a drain. */
+    public void fillBladder(double amount) {
+        this.bladderPercent = Math.min(player.getBladderBase(), this.bladderPercent + amount);
+    }
+
+    /** Restores bowel control, clamped at the player's permanent max. The inverse of a drain. */
+    public void fillBowel(double amount) {
+        this.bowelPercent = Math.min(player.getBowelBase(), this.bowelPercent + amount);
+    }
+
     public void resetBladder() {
         this.bladderPercent = player.getBladderBase();
     }
 
     public void resetBowel() {
         this.bowelPercent = player.getBowelBase();
+    }
+
+    /* ========================
+       DIAPER STATE
+       ======================== */
+
+    /** Records a wetting into the diaper, deepening its saturation. */
+    public void wetDiaper(int amount) {
+        this.diaperWetness += amount;
+    }
+
+    /** Records a messing into the diaper, deepening its soiling. */
+    public void messDiaper(int amount) {
+        this.diaperMessiness += amount;
+    }
+
+    /** A fresh, clean, dry diaper. */
+    public void changeDiaper() {
+        this.diaperWetness = 0;
+        this.diaperMessiness = 0;
+    }
+
+    public boolean isDiaperWet() {
+        return diaperWetness > 0;
+    }
+
+    public boolean isDiaperMessy() {
+        return diaperMessiness > 0;
     }
 
     /* ========================
@@ -121,10 +190,20 @@ public class PlayerRun {
     public void enterFloor() {
         this.location = GameLocation.FLOOR;
         this.currentFloor = 1;
+        this.currentRoomId = "START";
+        changeDiaper();
+        clearNarration();
     }
 
     public void returnToHub() {
         this.location = GameLocation.HUB;
+        this.currentRoomId = null;
+        clearNarration();
+    }
+
+    /** Drops the persisted screen so the next floor starts fresh. */
+    public void clearNarration() {
+        this.lastNarration = null;
     }
 
     /* ========================
@@ -136,18 +215,35 @@ public class PlayerRun {
         this.bladderPercent = player.getBladderBase();
         this.bowelPercent = player.getBowelBase();
         this.currentFloor = 1;
+        this.currentRoomId = null;
         this.location = GameLocation.HUB;
         this.active = false;
+        changeDiaper();
+        clearNarration();
     }
 
     public void equip(Equipment equipment) {
         // actual persistence handled by service layer
     }
 
-    @PostLoad
-    private void initRandomAfterLoad() {
-        if (this.random == null) {
-            this.random = new Random(this.worldSeed);
+    /**
+     * The single source of randomness for a turn. Lazily rebuilds the RNG from the
+     * seed and fast-forwards it past every draw already taken this run, so outcomes
+     * advance across stateless reloads instead of repeating.
+     */
+    public double nextDouble() {
+        ensureRandom();
+        double value = random.nextDouble();
+        randomDraws++;
+        return value;
+    }
+
+    private void ensureRandom() {
+        if (random == null) {
+            random = new Random(worldSeed);
+            for (long i = 0; i < randomDraws; i++) {
+                random.nextDouble();
+            }
         }
     }
 
@@ -211,6 +307,26 @@ public class PlayerRun {
         this.bowelPercent = bowelPercent;
     }
 
+    public int getDiaperWetness()
+    {
+        return diaperWetness;
+    }
+
+    public void setDiaperWetness(int diaperWetness)
+    {
+        this.diaperWetness = diaperWetness;
+    }
+
+    public int getDiaperMessiness()
+    {
+        return diaperMessiness;
+    }
+
+    public void setDiaperMessiness(int diaperMessiness)
+    {
+        this.diaperMessiness = diaperMessiness;
+    }
+
     public int getCurrentFloor()
     {
         return currentFloor;
@@ -219,6 +335,16 @@ public class PlayerRun {
     public void setCurrentFloor(int currentFloor)
     {
         this.currentFloor = currentFloor;
+    }
+
+    public String getCurrentRoomId()
+    {
+        return currentRoomId;
+    }
+
+    public void setCurrentRoomId(String currentRoomId)
+    {
+        this.currentRoomId = currentRoomId;
     }
 
     public boolean isActive()
@@ -271,7 +397,13 @@ public class PlayerRun {
         this.version = version;
     }
 
-    public Random getRandom() {
-        return random;
+    public String getLastNarration()
+    {
+        return lastNarration;
+    }
+
+    public void setLastNarration(String lastNarration)
+    {
+        this.lastNarration = lastNarration;
     }
 }

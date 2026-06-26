@@ -1,6 +1,7 @@
 package com.example.rrr.dto;
 
 import com.example.rrr.model.EquipmentType;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -10,6 +11,9 @@ import lombok.NoArgsConstructor;
 @Table(name = "equipment")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+// Equipment is reached through lazy @ManyToOne associations, so responses may hold
+// Hibernate proxies — ignore the proxy internals Jackson can't serialize.
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Equipment {
 
     @Id

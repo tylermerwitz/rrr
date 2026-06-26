@@ -5,10 +5,14 @@ import com.example.rrr.model.*;
 import com.example.rrr.repository.PlayerMetaRepository;
 import com.example.rrr.repository.PlayerRunRepository;
 import com.example.rrr.service.*;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -20,14 +24,22 @@ public class GameController {
     private final PlayerRunRepository runRepository;
 
     private final GameEngineService engineService;
-    private final FloorGeneratorService floorGenerator;
-    private final FloorDefinitionService definitionService;
+    private final DeathService deathService;
     private final EventDefinitionService eventService;
-    private final NarrationMapper narrationMapper;
-    private final LlmNarrationService llmNarrationService;
-    private final LlmClient llmClient;
     private final EquipmentService equipmentService;
     private final ShopService shopService;
+    private final ObjectMapper objectMapper;
+
+    /**
+     * The breaking paragraph appended to the fatal action's resolution prose on the death screen.
+     * Authored, not generated — the per-event failure narration describes the blow; this describes
+     * the collapse it finally triggers.
+     */
+    private static final String DEATH_LINE =
+            " And that is the blow that finally breaks you. Whatever was still holding — the last "
+            + "stubborn scrap of the person who walked in here — lets go all at once, and you come "
+            + "completely undone, body and will surrendering together as everything goes soft and "
+            + "dark and far away. When you surface, you are back in the Hub, smaller than before.";
 
     /* =========================
        START RUN
@@ -43,7 +55,11 @@ public class GameController {
                 ));
 
         PlayerRun run = runRepository.findByPlayerAndActiveTrue(player)
-                .orElseGet(() -> runRepository.save(new PlayerRun(player)));
+                .orElseGet(() -> {
+                    PlayerRun fresh = runRepository.save(new PlayerRun(player));
+                    equipmentService.grantStarterLoadout(player, fresh);
+                    return fresh;
+                });
 
         return buildState(player, run);
     }
@@ -71,17 +87,58 @@ public class GameController {
             return new HubStateResponse(player, run);
         }
 
-        FloorDefinition def =
-                definitionService.getDefinition(run.getCurrentFloor());
+        // On a plain reload we don't spend an LLM call — we re-serve the last narration.
+        return floorPayload(player, run, null, readLastNarration(run));
+    }
 
-        FloorInstance floor =
-                floorGenerator.generateFloor(def, run.getWorldSeed());
+    /**
+     * The shape the floor screen consumes: current run + player for the topbar, the optional
+     * outcome of the action just taken, and the narrator's current narration + choices.
+     */
+    private Map<String, Object> floorPayload(
+            PlayerMeta player,
+            PlayerRun run,
+            EventOutcome outcome,
+            NarrationResponse narration
+    ) {
+        Map<String, Object> payload = new HashMap<>();
+        payload.put("meta", player);
+        payload.put("run", run);
+        payload.put("outcome", outcome);     // null on the opening beat / a plain reload
+        payload.put("narration", narration); // null only if the player has died back to the hub
+        payload.put("phase", phaseFor(run, narration));
+        return payload;
+    }
 
-        return new GameStateResponse(
-                player,
-                run,
-                floor.getRooms()
-        );
+    /**
+     * Tells the client what kind of screen this payload is, so it knows what control to show:
+     * <ul>
+     *   <li>{@code RESOLUTION} — narration with no choices; show a Continue button (-> /continue).</li>
+     *   <li>{@code EVENT} — narration with choices; show the choice buttons (-> /action).</li>
+     * </ul>
+     * The DEATH beat is tagged {@code DEAD} explicitly by {@code /action} (it overrides this), so the
+     * hub-location {@code ENDED} branch here is just a defensive fallback.
+     */
+    private String phaseFor(PlayerRun run, NarrationResponse narration) {
+        if (run.getLocation() == GameLocation.HUB) {
+            return "ENDED";
+        }
+        boolean hasChoices = narration != null
+                && narration.getChoices() != null
+                && !narration.getChoices().isEmpty();
+        return hasChoices ? "EVENT" : "RESOLUTION";
+    }
+
+    private NarrationResponse readLastNarration(PlayerRun run) {
+        String json = run.getLastNarration();
+        if (json == null || json.isBlank()) {
+            return null;
+        }
+        try {
+            return objectMapper.readValue(json, NarrationResponse.class);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     /* =========================
@@ -90,7 +147,7 @@ public class GameController {
 
     @PostMapping("/hub/enter")
     @Transactional
-    public GameStateResponse enterRegressionRealm(@RequestBody StartGameRequest request) {
+    public Map<String, Object> enterRegressionRealm(@RequestBody StartGameRequest request) {
 
         PlayerMeta player = playerRepository.findById(request.playerId())
                 .orElseThrow();
@@ -104,17 +161,12 @@ public class GameController {
 
         run.enterFloor();
 
-        FloorDefinition def =
-                definitionService.getDefinition(run.getCurrentFloor());
+        // Open the floor's encounter: pick the first event and present its authored scene + choices.
+        GameEvent firstEvent = eventService.getRandomEventForFloor(player, run);
+        NarrationResponse narration = eventBeat(firstEvent);
+        persistLastNarration(run, narration);
 
-        FloorInstance floor =
-                floorGenerator.generateFloor(def, run.getWorldSeed());
-
-        return new GameStateResponse(
-                player,
-                run,
-                floor.getRooms()
-        );
+        return floorPayload(player, run, null, narration);
     }
 
     @GetMapping("/hub/mirror/{playerId}")
@@ -216,35 +268,12 @@ public class GameController {
     }
 
     /* =========================
-       MOVE ROOMS
+       PLAY A TURN
        ========================= */
-
-    @PostMapping("/move")
-    @Transactional
-    public Object move(
-            @RequestBody MoveRequest request
-    ) {
-
-        PlayerMeta player = playerRepository
-                .findById(request.playerId())
-                .orElseThrow();
-
-        PlayerRun run = runRepository
-                .findByPlayerAndActiveTrue(player)
-                .orElseThrow();
-
-        // In full version:
-        // Validate roomId is connected
-        // Update run current room state
-
-        return buildState(player, run);
-    }
 
     @PostMapping("/action")
     @Transactional
-    public Map<String, Object> processAction(
-            @RequestBody ActionRequest request
-    ) {
+    public Map<String, Object> processAction(@RequestBody ActionRequest request) {
 
         PlayerMeta player = playerRepository
                 .findById(request.playerId())
@@ -254,35 +283,99 @@ public class GameController {
                 .findByPlayerAndActiveTrue(player)
                 .orElseThrow();
 
-        GameEvent event = eventService.getEventInstance(
-                request.eventId(),
-                run.getCurrentFloor()
-        );
+        GameEvent event = eventService.getEventInstance(request.eventId());
 
         TurnResult result =
-                engineService.processAction(event, player, run);
+                engineService.processAction(event, request.actionType(), player, run);
 
-        NarrationRequest narrationRequest =
-                narrationMapper.build(result);
+        PlayerRun activeRun = result.getRunState();
+        PlayerMeta activeMeta = result.getMetaState();
+        EventOutcome outcome = result.getOutcome();
 
-        NarrationResponse narration =
-                llmNarrationService.generate(narrationRequest);
+        // If this turn pushed humiliation past the breaking point, the resolution becomes a DEATH
+        // beat: the authored failure prose plus the canned breaking paragraph. We build it against
+        // the dying run and only THEN respawn (which resets the run and drops a fresh one in the
+        // hub). The payload is tagged phase=DEAD so the client shows the death banner.
+        if (deathService.isFatal(activeRun)) {
+            String deathText = appendLine(outcome.getNarration(), DEATH_LINE);
+            NarrationResponse death = new NarrationResponse(deathText, List.of());
 
-        return Map.of(
-                "gameState", result,
-                "narration", narration
-        );
+            PlayerRun fresh = deathService.respawn(activeMeta, activeRun);
+
+            Map<String, Object> payload = floorPayload(activeMeta, fresh, outcome, death);
+            payload.put("phase", "DEAD");
+            return payload;
+        }
+
+        // Otherwise show how THIS action resolved — its own beat, the authored branch prose with no
+        // choices. The player reads it, then hits Continue (/continue) to advance to the next event.
+        NarrationResponse resolution = new NarrationResponse(outcome.getNarration(), List.of());
+        persistLastNarration(activeRun, resolution);
+
+        return floorPayload(activeMeta, activeRun, outcome, resolution);
     }
 
-    @PostMapping("/test-llm")
-    public String testLlm() {
-        return llmClient.complete("""
-        Return this JSON:
-        {"narration":"hello","choices":[
-          {"id":"A","text":"test","riskLevel":"SAFE"},
-          {"id":"B","text":"test2","riskLevel":"MODERATE"},
-          {"id":"C","text":"test3","riskLevel":"RISKY"}
-        ]}
-    """);
+    /**
+     * Advance from a resolution screen to the next encounter. Called when the player hits Continue
+     * after reading how their last action played out: picks the next event and narrates its scene.
+     */
+    @PostMapping("/continue")
+    @Transactional
+    public Map<String, Object> continueEncounter(@RequestBody ContinueRequest request) {
+
+        PlayerMeta player = playerRepository
+                .findById(request.playerId())
+                .orElseThrow();
+
+        PlayerRun run = runRepository
+                .findByPlayerAndActiveTrue(player)
+                .orElseThrow();
+
+        if (run.getLocation() != GameLocation.FLOOR) {
+            throw new IllegalStateException("No active floor encounter to continue");
+        }
+
+        GameEvent nextEvent = eventService.getRandomEventForFloor(player, run);
+        NarrationResponse narration = eventBeat(nextEvent);
+        persistLastNarration(run, narration);
+
+        return floorPayload(player, run, null, narration);
+    }
+
+    /* =========================
+       AUTHORED NARRATION HELPERS
+       ========================= */
+
+    /**
+     * Builds the EVENT beat for an authored event: its scene as the narration, and its choices as
+     * submittable options (each bound to its risk/action and the event id).
+     */
+    private NarrationResponse eventBeat(GameEvent event) {
+        List<ChoiceOption> choices = new ArrayList<>();
+        char id = 'A';
+        for (EventChoice choice : event.getChoices()) {
+            ChoiceOption option = new ChoiceOption(
+                    String.valueOf(id++), choice.getLabel(), choice.getRisk().name());
+            option.setActionType(choice.getRisk());
+            option.setEventId(event.getId());
+            if (choice.getCategory() != null) {
+                option.setCategory(choice.getCategory().name());
+            }
+            choices.add(option);
+        }
+        return new NarrationResponse(event.getScene(), choices);
+    }
+
+    /** Persists the current screen so a plain state reload re-serves it without re-rolling. */
+    private void persistLastNarration(PlayerRun run, NarrationResponse narration) {
+        try {
+            run.setLastNarration(objectMapper.writeValueAsString(narration));
+        } catch (Exception e) {
+            // Non-fatal: a reload simply won't be able to re-serve this exact screen.
+        }
+    }
+
+    private String appendLine(String base, String line) {
+        return (base == null ? "" : base) + line;
     }
 }

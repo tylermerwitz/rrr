@@ -2,6 +2,7 @@ package com.example.rrr;
 
 import com.example.rrr.dto.PlayerMeta;
 import com.example.rrr.dto.PlayerRun;
+import com.example.rrr.model.ActionType;
 import com.example.rrr.model.EventOutcome;
 import com.example.rrr.model.GameEvent;
 import com.example.rrr.model.TurnResult;
@@ -33,13 +34,14 @@ public class GameSimulationRunner {
 
             System.out.println("---- TURN " + i + " ----");
 
-            GameEvent event = eventService.getEventInstance(
-                    "STEALTH_ATTEMPT",
-                    run.getCurrentFloor()
-            );
+            // Draw a real event from the current floor pool (the authored ids change as content is
+            // rewritten, so the sim picks whatever is eligible rather than a hard-coded id) and take
+            // one of its actual choices.
+            GameEvent event = eventService.getRandomEventForFloor(player, run);
+            ActionType action = event.getChoices().get(0).getRisk();
 
             TurnResult result =
-                    engineService.processAction(event, player, run);
+                    engineService.processAction(event, action, player, run);
 
             printState(result);
 

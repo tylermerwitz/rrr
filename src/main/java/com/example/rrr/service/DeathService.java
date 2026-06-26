@@ -11,21 +11,23 @@ import org.springframework.stereotype.Service;
 public class DeathService {
 
     private final PlayerRunRepository runRepository;
+    private final EquipmentService equipmentService;
 
     /**
-     * Returns the run that should be considered active going forward:
-     * the same run if the player survived, or a brand-new hub run if they died.
+     * Whether this run has crossed the humiliation threshold that breaks the player. Pure check —
+     * it does NOT mutate the run, so the caller can narrate the breaking before committing to the
+     * respawn (which wipes the dying run's floor transcript).
      */
-    public PlayerRun checkDeath(PlayerMeta meta, PlayerRun run) {
-
-        if (run.getHumiliation() >= 2000) {
-            return triggerDeath(meta, run);
-        }
-
-        return run;
+    public boolean isFatal(PlayerRun run) {
+        return run.getHumiliation() >= 2000;
     }
 
-    private PlayerRun triggerDeath(PlayerMeta meta, PlayerRun run) {
+    /**
+     * Applies the death penalty, resets the dying run, and returns a brand-new hub run to take its
+     * place. Call this only AFTER any death narration has been generated — {@code resetForRespawn}
+     * clears the floor transcript and state the breaking is narrated from.
+     */
+    public PlayerRun respawn(PlayerMeta meta, PlayerRun run) {
 
         meta.incrementDeaths();
 
@@ -37,6 +39,8 @@ public class DeathService {
 
         run.resetForRespawn();
 
-        return runRepository.save(new PlayerRun(meta));
+        PlayerRun fresh = runRepository.save(new PlayerRun(meta));
+        equipmentService.grantStarterLoadout(meta, fresh);
+        return fresh;
     }
 }
